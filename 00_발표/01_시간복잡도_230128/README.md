@@ -133,7 +133,7 @@ n = $n/2$  (1번째) → n = $n/2^2$(2번째) → n = $n/2^3$ (3번째) → … 
 
 <br>
 
-T(n) = 4 * $log^n_2$ + 1 = c * $log^n_2$ +1 = O($log^n_2$)
+T(n) = 4 * $log^n_2$ + 1 = c * $log^n_2$ +1 = O( $log^n_2$ )
 
 <br>
 
@@ -183,7 +183,7 @@ algorithm arrayMax(A, n)
 
 <br><br>
 
-### O($n^2$) - 두 배열 곱의 합을 계산하는 알고리즘
+### O( $n^2$ ) - 두 배열 곱의 합을 계산하는 알고리즘
 
 ```python
 algorithm sum2(A, n):
@@ -210,7 +210,7 @@ T(n) = $n(n+1)/2$ * (c, d, e) + a
 
 <br><br>
 
-### O($n^3$) - 2차원 행렬의 곱을 계산해 행렬 c를 리턴하는 알고리즘
+### O( $n^3$ ) - 2차원 행렬의 곱을 계산해 행렬 c를 리턴하는 알고리즘
 
 ```python
 algorithm sum3(A, B, n):
@@ -223,11 +223,11 @@ algorithm sum3(A, B, n):
 	return sum
 ```
 
-T(n) = $3n^3$ +1 = O( $n^3)$
+T(n) = $3n^3$ +1 = O( $n^3$ )
 
 <br><br>
 
-### O($2^n$) - 피보나치 수 계산하는 재귀 알고리즘
+### O( $2^n$ ) - 피보나치 수 계산하는 재귀 알고리즘
 
 ```python
 algorithm fibonacci(k):
@@ -236,7 +236,7 @@ algorithm fibonacci(k):
 	return fibonacci(k-1) + fibonacci(k-2)
 ```
 
-T(n) = c $2^n$ = O($2^n$)
+T(n) = c $2^n$ = O( $2^n$ )
 
 
 <br><br>
