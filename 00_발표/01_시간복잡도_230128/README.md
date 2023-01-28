@@ -7,7 +7,7 @@
     
 ### QnA
 
-  1. 피보나치 재귀함수는 왜 O($2^n$)인가요?
+  1. 피보나치 재귀함수는 왜 O( $2^n$ )인가요?
    
         > <img width="245" alt="image" src="https://user-images.githubusercontent.com/83294376/215259866-8c4392e1-0cfe-4445-8121-1b9d80cdedd8.png">
         > <br> 2번씩 트리의 높이 k만큼 반복하는 형태
