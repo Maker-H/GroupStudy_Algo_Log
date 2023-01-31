@@ -78,6 +78,7 @@
 <br>
 
 ### 리스트 원소 저장 방법
+
 <img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215624540-6fd69092-8e54-4779-8a40-532e5821c7b4.png'>
 
 
@@ -88,6 +89,7 @@
 <br>
 
 `A[2] = A[2] + 1` 하면 
+
 <img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215625045-55a6ff45-44a9-47ff-aeba-2b5018ac1349.png'>
 
 
@@ -99,7 +101,7 @@
 
 `A.append(6)`하면 맨 뒤에 6을 삽입하는 것. 근데 6이 들어가는게 아니라 6이라는 객체가 어딘가에 저장되고 주소값만 A[4]에 들어감.
 
-- **O(1)** - 아래에서 설명 [append 구현](https://www.notion.so/append-e5632d0f9d554944b6385db48e3ccf82)
+- **O(1)** - list append 구현 참조 
 
 `A.pop( )`은 맨 뒤의 값을 지우고 리턴. 그러면 6이 리턴되고 연결이 끊김
 
@@ -130,11 +132,13 @@
 ### 용량 자동 조절 (동적 배열)
 
 **배열**은 코드로 큰 메모리 할당해준 다음 배열 복사해줘야한다
+
 <img width="305" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215625131-b7635d70-176a-4039-a666-366a78965536.png'>
 
 <br>
 
 파이썬의 **동적 배열(리스트)**는 모자라면 늘리고 넘치면 줄이는걸 자기 마음대로 함
+
 <img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215625169-f717dd53-a05e-4d14-9efd-e7e7c6303cbe.png'>
 
 
@@ -497,10 +501,12 @@ def calculate(answer):
 **6 + (3 - 2) * 4**  → **6 3 2 - 4 * +**
 
 - `infix → postfix`
+
 <img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628383-4aaea02b-9872-45db-9fd0-6cef2e738ba6.png'>
 
 
 - `postfix → 계산`
+
 <img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628431-58fb850e-266c-4bce-aa67-03b9ce4e7f15.png'>
 
 
@@ -512,6 +518,7 @@ FIFO(First-In First-Out) 규칙의 순차적 자료구조
 
 - 삽입 : enqueue
 - 삭제 : dequeue
+
 <img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628478-9bea13f4-eba6-42af-bb93-5cabc7eed31e.png'>
 
 <img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628495-06b82fbc-2459-49fc-816a-4f748a43a19a.png'>
@@ -561,6 +568,7 @@ class Queue:
 <br>
 
 큐를 활용해서 풀기
+
 <img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628763-de1ac1c2-6d72-4776-8e41-a684621fa417.png'>
 
 
