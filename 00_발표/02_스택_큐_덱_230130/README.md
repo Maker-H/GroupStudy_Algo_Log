@@ -78,8 +78,9 @@
 <br>
 
 ### 리스트 원소 저장 방법
+<img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215624540-6fd69092-8e54-4779-8a40-532e5821c7b4.png'>
 
-![image](https://user-images.githubusercontent.com/83294376/215624540-6fd69092-8e54-4779-8a40-532e5821c7b4.png)
+
 모든 원소가 각각의 주소에 저장되어 있음. 배열처럼 주소가 연결되어 있지 않음 
 
 그렇기에 리스트의 배열은 각각의 원소들이 저장되어 있는 주소값을 가짐
@@ -87,8 +88,8 @@
 <br>
 
 `A[2] = A[2] + 1` 하면 
+<img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215625045-55a6ff45-44a9-47ff-aeba-2b5018ac1349.png'>
 
-![image](https://user-images.githubusercontent.com/83294376/215625045-55a6ff45-44a9-47ff-aeba-2b5018ac1349.png)
 
 1이라는 객체가 새로 생기고 A[2]가 새로 생긴 객체의 주소를 담음
 
@@ -129,14 +130,13 @@
 ### 용량 자동 조절 (동적 배열)
 
 **배열**은 코드로 큰 메모리 할당해준 다음 배열 복사해줘야한다
-
-![image](https://user-images.githubusercontent.com/83294376/215625131-b7635d70-176a-4039-a666-366a78965536.png)
+<img width="305" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215625131-b7635d70-176a-4039-a666-366a78965536.png'>
 
 <br>
 
 파이썬의 **동적 배열(리스트)**는 모자라면 늘리고 넘치면 줄이는걸 자기 마음대로 함
+<img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215625169-f717dd53-a05e-4d14-9efd-e7e7c6303cbe.png'>
 
-![image](https://user-images.githubusercontent.com/83294376/215625169-f717dd53-a05e-4d14-9efd-e7e7c6303cbe.png)
 
 <br>
 
@@ -314,8 +314,7 @@ Class Stack:
 
 <br>
 
-
-![image](https://user-images.githubusercontent.com/83294376/215626753-1dccd013-e7ae-4e62-86a1-40d449ce5c8f.png)
+<img width="145" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215626753-1dccd013-e7ae-4e62-86a1-40d449ce5c8f.png'>
 
 1번 오른쪽이라 push
 
@@ -333,7 +332,7 @@ Class Stack:
 
 <br>
 
-![image](https://user-images.githubusercontent.com/83294376/215627702-b93df88f-798f-4ae6-b819-9033f129a372.png)
+<img width="145" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215627702-b93df88f-798f-4ae6-b819-9033f129a372.png'>
 
 1번 오른쪽이라 push
 
@@ -345,7 +344,7 @@ Class Stack:
 
 <br>
 
-![image](https://user-images.githubusercontent.com/83294376/215626876-8021ca63-0e39-4d56-b1f0-afa9355fc903.png)
+<img width="145" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215626876-8021ca63-0e39-4d56-b1f0-afa9355fc903.png'>
 
 1번 오른쪽이라 push
 
@@ -498,12 +497,12 @@ def calculate(answer):
 **6 + (3 - 2) * 4**  → **6 3 2 - 4 * +**
 
 - `infix → postfix`
+<img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628383-4aaea02b-9872-45db-9fd0-6cef2e738ba6.png'>
 
-![image](https://user-images.githubusercontent.com/83294376/215628383-4aaea02b-9872-45db-9fd0-6cef2e738ba6.png)
 
 - `postfix → 계산`
+<img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628431-58fb850e-266c-4bce-aa67-03b9ce4e7f15.png'>
 
-![image](https://user-images.githubusercontent.com/83294376/215628431-58fb850e-266c-4bce-aa67-03b9ce4e7f15.png)
 
 <r><br>
 
@@ -513,10 +512,10 @@ FIFO(First-In First-Out) 규칙의 순차적 자료구조
 
 - 삽입 : enqueue
 - 삭제 : dequeue
+<img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628478-9bea13f4-eba6-42af-bb93-5cabc7eed31e.png'>
 
-![image](https://user-images.githubusercontent.com/83294376/215628478-9bea13f4-eba6-42af-bb93-5cabc7eed31e.png)
+<img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628495-06b82fbc-2459-49fc-816a-4f748a43a19a.png'>
 
-![image](https://user-images.githubusercontent.com/83294376/215628495-06b82fbc-2459-49fc-816a-4f748a43a19a.png)
 
 <br>
 
@@ -557,14 +556,13 @@ class Queue:
 
 `Josephus(n, k): return 최종 병사의 번호`
 
-
-![image](https://user-images.githubusercontent.com/83294376/215628718-be425baa-185f-49a3-81f7-b431f84d0c7d.png)
+<img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628718-be425baa-185f-49a3-81f7-b431f84d0c7d.png'>
 
 <br>
 
 큐를 활용해서 풀기
+<img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628763-de1ac1c2-6d72-4776-8e41-a684621fa417.png'>
 
-![image](https://user-images.githubusercontent.com/83294376/215628763-de1ac1c2-6d72-4776-8e41-a684621fa417.png)
 
 <br>
 
@@ -597,7 +595,9 @@ def Joshephus(n, k):
 - appendleft( ) - 리스트 처음에 append
 - popleft( ) - 리스트 처음
 
-![image](https://user-images.githubusercontent.com/83294376/215628909-10812c52-d101-4242-b2c2-54504c79d93e.png)
+<img width="285" alt="image" src= 'https://user-images.githubusercontent.com/83294376/215628909-10812c52-d101-4242-b2c2-54504c79d93e.png'>
+
+
 
 <br>
 
