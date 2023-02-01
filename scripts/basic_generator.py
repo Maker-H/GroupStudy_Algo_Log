@@ -122,7 +122,7 @@ def get_next_column_number(f):
 
 # 날짜, 순번, 주제(url), 문제(url)
 def make_table_row(raw_presentation_new_folder, raw_problem_new_folder, column_number):
-    return f'|{date_format(raw_presentation_new_folder)}|{column_number}|[{folder_format(raw_presentation_new_folder)}]({parse_presentation_directory_path(raw_presentation_new_folder)})|[바로가기]({parse_problem_directory_path(raw_problem_new_folder)})|'
+    return f'|{date_format(raw_presentation_new_folder)}|{column_number}|[{folder_format(raw_presentation_new_folder)}]({parse_presentation_directory_path(raw_presentation_new_folder)})|[바로가기]({parse_problem_directory_path(raw_problem_new_folder)})|\n'
     
 
 
@@ -159,7 +159,7 @@ if __name__ == "__main__":
     
 
         # 리드미 작성
-        f = open('README1.md', "w", encoding='utf-8')
+        f = open('README.md', "w", encoding='utf-8')
         n = open('scripts/readme_table.md', "r", encoding='utf-8')
         t = open('scripts/template.md', "r", encoding='utf-8')
         
