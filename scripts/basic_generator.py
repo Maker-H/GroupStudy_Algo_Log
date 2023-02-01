@@ -59,10 +59,19 @@ def folder_format(raw_folder):
     return f'{convert_folder_name} - {presentor}'
 
 
-def parse_directory_path(folder):
+def parse_presentation_directory_path(target_folder):
     
-    my_url = parse.quote(folder)
-    return f'https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/{my_url}'
+    parent_folder = parse.quote('00_발표')
+    child_folder = parse.quote(target_folder)
+
+    return f'https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/{parent_folder}/{child_folder}'
+
+def parse_problem_directory_path(target_folder):
+    
+    parent_folder = parse.quote('01_문제')
+    child_folder = parse.quote(target_folder)
+
+    return f'https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/{parent_folder}/{child_folder}'
 
 
 def date_format(folder):
@@ -113,7 +122,7 @@ def get_next_column_number(f):
 
 # 날짜, 순번, 주제(url), 문제(url)
 def make_table_row(raw_presentation_new_folder, raw_problem_new_folder, column_number):
-    return f'|{date_format(raw_presentation_new_folder)}|{column_number}|[{folder_format(raw_presentation_new_folder)}]({parse_directory_path(raw_presentation_new_folder)})|[바로가기]({parse_directory_path(raw_problem_new_folder)})|'
+    return f'|{date_format(raw_presentation_new_folder)}|{column_number}|[{folder_format(raw_presentation_new_folder)}]({parse_presentation_directory_path(raw_presentation_new_folder)})|[바로가기]({parse_problem_directory_path(raw_problem_new_folder)})|'
     
 
 
@@ -133,8 +142,7 @@ if __name__ == "__main__":
             break
     table_len = table_len - table_template 
     folder_len += table_row_not_in_presentation_folder
-    print(table_len)
-    print(folder_len)
+
     f.close()
     # 만약 폴더 개수가 더이상 리드미를 갱신할 필요가 없다면
     if table_len >= folder_len:
@@ -146,7 +154,6 @@ if __name__ == "__main__":
         column_number = get_next_column_number(f)
         table_row = make_table_row(get_list_of_presentation_folders_raw()[-1], get_list_of_problem_folders_raw()[-1],column_number)
         f = open('scripts/readme_table.md', "a", encoding='utf-8')
-        print(table_row)
         f.writelines(table_row)
         f.close()
     
