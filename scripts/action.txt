@@ -14,7 +14,7 @@ jobs: # 실제 실행될 내용
       with:
         python-version: "3.9.13" # 3.10버전 파이썬 사용
 
- 
+ ``` 사용 놉
     - name: switch to refactor(branch) # 2) 브랜치 바꿈
       run: |
         git checkout refactor
