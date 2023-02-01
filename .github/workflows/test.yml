@@ -1,0 +1,20 @@
+
+on:
+  push:
+    branches: refactor
+    
+jobs: # 실제 실행될 내용
+  build:
+    runs-on: windows-latest # 빌드 환경
+    steps:
+    - uses: actions/checkout@v3 # checkout
+    
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3 # setup-python
+      with:
+        python-version: "3.9.13" # 3.10버전 파이썬 사용
+    
+    - name: Run basic_generator.py # 3) update-readme.py 실행
+      run: 
+        python scripts/this_is_new_file.py
+  
