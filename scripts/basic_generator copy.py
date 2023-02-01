@@ -21,17 +21,42 @@ def get_list_of_problem_folders_raw():
 
 # TODO: 작성자 추가 
 def folder_format(raw_folder):
-    result = ''
+    # 발표자 찾기
+    presentation_folder = get_list_of_presentation_folders_raw()
+    last_presentation_folder = presentation_folder[-1]
+    readme_path = f'./00_발표/{last_presentation_folder}/README.md'
+    
+    f = open(readme_path, "r", encoding='utf-8')
 
+    is_not_presenter = True
+    that_row = ''
+    while is_not_presenter:
+        tmp = f.readline()
+        for idx in range(len(tmp)):
+            if tmp[idx:idx+3] == '발표자':
+                that_row = tmp
+                is_not_presenter = False
+                break
+    
+    # 발표자 포메팅
+    that_row = that_row.replace('발표자', '')
+    that_row = that_row.replace(':', '')
+    that_row = that_row.replace('-', '')
+    that_row = that_row.replace('📌', '')
+    presentor = that_row.strip()
+
+
+    # 폴더 포메팅
+    convert_folder_name = ''
     for c in raw_folder:
         try:
             c = int(c)
         except:
-            result += c
-    result = result.strip('_')
-    result = result.replace('_',", ")
+            convert_folder_name += c
+    convert_folder_name = convert_folder_name.strip('_')
+    convert_folder_name = convert_folder_name.replace('_',", ")
 
-    return result
+    return f'{convert_folder_name} - {presentor}'
 
 
 def parse_directory_path(folder):
@@ -145,11 +170,6 @@ if __name__ == "__main__":
         t.close()
         n.close()
         f.close()
-
-
-
-    
-    # TODO: 만약 더 추가할 필요없이 잘 들어 있으면 굳이 추가해서 갱신할 필요 없음
     
     
     # TODO: 제목은 스택, 큐, 덱 - 발표자 의 형식이여야 함
