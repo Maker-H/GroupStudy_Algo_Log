@@ -13,11 +13,6 @@ jobs: # 실제 실행될 내용
       uses: actions/setup-python@v3 # setup-python
       with:
         python-version: "3.9.13" # 3.10버전 파이썬 사용
-
- 
-    - name: switch to refactor(branch) # 2) 브랜치 바꿈
-      run: |
-        git checkout refactor
     
     - name: Run basic_generator.py # 3) update-readme.py 실행
       run: |
