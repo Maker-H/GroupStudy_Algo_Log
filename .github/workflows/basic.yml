@@ -1,7 +1,7 @@
 
 on:
   push:
-    branch: refactor
+    branches: refactor
     
 jobs: # 실제 실행될 내용
   build:
@@ -22,6 +22,7 @@ jobs: # 실제 실행될 내용
       run: |
         git config --global user.name 'Heesom' # 유저명
         git config --global user.email 'heesom.hs@gmail.com' # 유저 이메일
+        git remote set-url origin https://github.com/Maker-H/GroupStudy_Algo_Log.git
         git add -A
         git commit -am "auto-update README.md(basic)" # 커밋 메시지
 
