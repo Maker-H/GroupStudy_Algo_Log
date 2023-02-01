@@ -49,29 +49,29 @@ def date_format(folder):
     return date
 
 
-def get_column_number(f):
+def get_next_column_number(f):
     num = 0
-    rows = []
     row = []
+    prev = None
+    tmp = f.readline()
     while True:
-        tmp = f.readline()
-        row = list(tmp)
-        rows.append(row)
         if not tmp:
-            break
-    
-
-    that_row = rows[-1]
+            row = list(prev)
+            break    
+        prev = tmp
+        tmp = f.readline()
+        
     cnt = 0
-    for idx in range(len(that_row)):
-        if that_row[idx] == '|':
+    for idx in range(len(row)):
+        if row[idx] == '|':
             cnt += 1
         if cnt == 3:
-            num = that_row[idx-1: idx]
+            num = row[idx-1: idx]
+
             my_str = "".join(num)
             num = int(my_str)
             break
-    
+    num +=1
     if num < 9:
         return f'0{num}'
     else:
