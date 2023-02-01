@@ -1,8 +1,8 @@
 
 on:
-  push:
+  pull_request:
     branches:
-    - refactor
+    - master
     
 jobs: # 실제 실행될 내용
   build:
