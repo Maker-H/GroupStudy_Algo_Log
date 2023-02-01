@@ -1,7 +1,7 @@
 
 on:
   push:
-    branches: refactor
+    branch: refactor
     
 jobs: # 실제 실행될 내용
   build:
