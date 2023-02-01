@@ -1,10 +1,9 @@
 
 on:
   push:
+    branches: refactor
 
-    branches:
-    - refactor
-    
+
 jobs: # 실제 실행될 내용
   build:
     runs-on: windows-latest # 빌드 환경
