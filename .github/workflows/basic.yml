@@ -1,0 +1,50 @@
+
+on:
+  push:
+    branches:
+    - refactor
+    
+jobs: # 실제 실행될 내용
+  build:
+    runs-on: windows-latest # 빌드 환경
+    steps:
+    - uses: actions/checkout@v3 # checkout
+    
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4.2.3
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3 # setup-python
+      with:
+        python-version: "3.9.13" # 3.10버전 파이썬 사용
+
+    - name: Install pr 할 수 있게 해주는 hub # 1) 스크립트에 필요한 dependency 설치
+      run: |
+        python -m pip install --upgrade pip
+        pip install hub
+
+    - name: Run basic_generator.py # 2) update-readme.py 실행
+      run: |
+        python scripts/basic_generator.py
+
+    - name: Commit changes # 3) 추가된 파일 commit
+      run: |
+        git config --global user.name 'Heesom' # 유저명
+        git config --global user.email 'heesom.hs@gmail.com' # 유저 이메일
+        git add -A
+        git commit -am "auto-update README.md(basic)" # 커밋 메시지
+
+    - name: Push changes # 4) refactor에 푸시
+      run: |
+        git push origin refactor
+
+    # https://github.com/marketplace/actions/github-action-for-creating-pull-requests
+    - name: Create pull request
+      uses: devops-infra/action-pull-request@v0.5.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        source_branch: refactor
+        target_branch: master
+        title: auto-update README.md(basic)
+
+        
