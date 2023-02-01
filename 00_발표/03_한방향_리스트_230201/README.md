@@ -67,7 +67,8 @@ class SinglyLinkedList:
 - Iterator
   
   - 순서대로 다음 값을 리턴할 수 있는 객체. 자체적으로 내장하고 있는 next 메소드를 통해 다음 값을 가져올 수 있다.
-    ![다운로드](https://user-images.githubusercontent.com/102957590/216055706-adc1613d-59c1-4347-942d-b9d215ab2bb1.png)
+    
+    <img src="https://user-images.githubusercontent.com/102957590/216055706-adc1613d-59c1-4347-942d-b9d215ab2bb1.png" title="" alt="다운로드" width="403">
 
 - Generator
   
@@ -166,3 +167,23 @@ StopIteration
 ```
 
 - remove : O(n)
+
+```python
+def remove(self, key):
+   if self.size == 0: # 빈 리스트인 경우
+       pass
+
+   else:
+       prev, tail = None, self.head
+       while tail.next != None:
+           if prev == None and tail.key == key: # 제거하는 원소가 head에 있을 때
+               self.popFront()
+               break
+           elif tail.key == key: # 제거하고자하는 원소가 다른곳이 있는 경우
+               prev.next = tail.next
+               del tail
+               self.size -= 1
+               break
+           prev = tail
+           tail = tail.next
+```
