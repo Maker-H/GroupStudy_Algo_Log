@@ -54,7 +54,7 @@ def folder_format(raw_folder):
         except:
             convert_folder_name += c
     convert_folder_name = convert_folder_name.strip('_')
-    convert_folder_name = convert_folder_name.replace('_',", ")
+    convert_folder_name = convert_folder_name.replace('_'," ")
 
     return f'{convert_folder_name} - {presentor}'
 
@@ -133,22 +133,22 @@ if __name__ == "__main__":
     folder_len = len(get_list_of_presentation_folders_raw())
     
     table_len = 0
-    table_template = 9
-    table_row_not_in_presentation_folder = 1
+    table_template = 10
+
     while True:
         new_f = f.readline()
         table_len += 1
         if not new_f:
             break
     table_len = table_len - table_template 
-    folder_len += table_row_not_in_presentation_folder
 
+    print(table_len, folder_len)
     f.close()
     # 만약 폴더 개수가 더이상 리드미를 갱신할 필요가 없다면
-    if table_len >= folder_len:
+    if table_len >= folder_len+1:
         pass
 
-    elif table_len < folder_len: 
+    elif table_len < folder_len+1: 
         f = open('scripts/readme_table.md', "r", encoding='utf-8')
         # 한 줄 만들기
         column_number = get_next_column_number(f)
