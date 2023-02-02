@@ -133,7 +133,7 @@ if __name__ == "__main__":
     folder_len = len(get_list_of_presentation_folders_raw())
     
     table_len = 0
-    table_template = 10
+    table_template = 9
 
     while True:
         new_f = f.readline()
@@ -145,10 +145,11 @@ if __name__ == "__main__":
     print(table_len, folder_len)
     f.close()
     # 만약 폴더 개수가 더이상 리드미를 갱신할 필요가 없다면
+    print(table_len , folder_len+1)
     if table_len >= folder_len+1:
         pass
 
-    elif table_len < folder_len+1: 
+    else: 
         f = open('scripts/readme_table.md', "r", encoding='utf-8')
         # 한 줄 만들기
         column_number = get_next_column_number(f)
