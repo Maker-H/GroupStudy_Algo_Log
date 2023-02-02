@@ -29,8 +29,8 @@ jobs: # 실제 실행될 내용
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: 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
-        branch: refactor
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
 
     # https://github.com/marketplace/actions/github-action-for-creating-pull-requests
     - name: Create pull request
