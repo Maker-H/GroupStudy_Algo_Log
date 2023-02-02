@@ -123,7 +123,7 @@ def get_next_column_number(f):
 # 날짜, 순번, 주제(url), 문제(url)
 def make_table_row(raw_presentation_new_folder, raw_problem_new_folder, column_number):
     return f'|{date_format(raw_presentation_new_folder)}|{column_number}|[{folder_format(raw_presentation_new_folder)}]({parse_presentation_directory_path(raw_presentation_new_folder)})|[바로가기]({parse_problem_directory_path(raw_problem_new_folder)})|\n'
-    
+    #TODO: 바로가기는 폴더명이 같아야추가
 
 
 
