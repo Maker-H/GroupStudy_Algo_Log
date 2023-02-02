@@ -54,7 +54,7 @@ def folder_format(raw_folder):
         except:
             convert_folder_name += c
     convert_folder_name = convert_folder_name.strip('_')
-    convert_folder_name = convert_folder_name.replace('_',", ")
+    convert_folder_name = convert_folder_name.replace('_'," ")
 
     return f'{convert_folder_name} - {presentor}'
 
