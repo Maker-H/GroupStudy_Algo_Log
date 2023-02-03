@@ -6,7 +6,6 @@ def get_list_of_presentation_folders_raw():
     my_url = os.path.abspath('.\\00_발표')
 
     folders = [f for f in os.listdir(my_url)]
-    folders.remove('README.md')
     
     return folders
 
