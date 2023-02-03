@@ -22,6 +22,8 @@
 - 연결리스트는 노드(node)가 링크(link)에 의해 기차처럼 연결된 순차(Sequential) 자료구조로 링크를 따라 원하는 노드의 데이터를 접근하고 수정한다.
 - 노드(node) : 실제 값을 위한 data 정보(보통 key 값을 저장)와 인접 노드를 향하는 link 정보로 구성된 클래스
 
+<br>
+
 ## 한 방향 연결리스트(singly linked list)
 
 - 노드들이 한쪽 방향으로만(next 링크를 따라) 연결된 리스트
@@ -29,6 +31,9 @@
     노드를 접근한다
   - 가장 뒤에 있는 노드는 다음 노드가 없기 때문에 그 노드의 next 링크는 None을
     저장함. 즉, next 링크가 None이라면 그 노드가 마지막 노드임
+
+<br>
+
 - Node Class
 
 ```python
@@ -39,6 +44,8 @@ class Node:
     def __str__(self): # print(node)인 경우 출력할 문자열
         return str(self.key) # str((self.key, self,value))
 ```
+
+<br>
 
 - 한방향 연결 리스트 클래스
 
@@ -62,6 +69,8 @@ class SinglyLinkedList:
     def __len__(self):
         return self.size # len(A) = A의 노드 개수 리턴
 ```
+
+<br>
 
 - Iterator
   
@@ -94,6 +103,8 @@ Traceback (most recent call last):
 StopIteration
 ```
 
+<br>
+
 - pushFront vs pushBack
   - pushFront : O(1)
   - pushBack : O(n)
@@ -116,6 +127,8 @@ StopIteration
             tail.next = new_node
         self.size += 1
 ```
+
+<br>
 
 - popFront vs popBack
   - popFront : O(1)
@@ -153,6 +166,8 @@ StopIteration
             return key  # or return (key, value)
 ```
 
+<br>
+
 - search : O(n)
 
 ```python
@@ -164,6 +179,8 @@ StopIteration
             v = v.next
         return v
 ```
+
+<br>
 
 - remove : O(n)
 
