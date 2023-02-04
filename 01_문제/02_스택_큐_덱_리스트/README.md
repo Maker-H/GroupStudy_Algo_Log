@@ -1,4 +1,4 @@
-# 스택, 큐, 덱
+# 스택, 큐, 덱, 리스트
 
 [메인으로 돌아가기](https://github.com/Maker-H/GroupStudy_Algo_Log)
 
