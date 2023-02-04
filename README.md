@@ -82,6 +82,8 @@ git commit -m "[진희솜] 스택 / 균형잡힌 세상 / 브론즈" -m "https:/
 <summary>자세히</summary>
 <div markdown="1">
 
+<br>
+
 2023.01.20
 * 리드미에 목차 테이블 추가
   * 커밋 규칙, PR 규칙만 있던 README에 각 발표자료와 문제로 갈 수 있는 목차 테이블을 추가
