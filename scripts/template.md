@@ -1,4 +1,3 @@
-
 <br />
 
 ---
@@ -58,3 +57,40 @@ git commit -m "[진희솜] 스택 / 균형잡힌 세상 / 브론즈" -m "https:/
   -   왜 이렇게 풀었는지 궁금한 부분
   -   또 다른 풀이 방식 제시
 - 코드의 일부분에다 코드리뷰를 해도 되고 전체 코드 밑 or PR 하나 밑에다 코멘트 작성으로 리뷰를 해도 됩니다.
+
+<br>
+
+## 업데이트 로그
+스터디를 잘 돌아가게 하기 위해 규격화, 문서화, 자동화 시킬 수 있는 방법을 고민하고 있습니다
+<details>
+<summary>자세히</summary>
+<div markdown="1">
+
+2023.01.20
+* 리드미에 목차 테이블 추가
+  * 커밋 규칙, PR 규칙만 있던 README에 각 발표자료와 문제로 갈 수 있는 목차 테이블을 추가
+
+2023.02.02
+* [Github Actions](https://github.com/Maker-H/GroupStudy_Algo_Log/actions) 도입
+    * refactor 브랜치에서 push하면 테이블의 목차와 폴더의 개수를 비교하여 테이블의 목차 개수가 부족하다면 목차 테이블을 업데이트
+  
+2023.02.04
+* [Github MileStones](https://github.com/Maker-H/GroupStudy_Algo_Log/milestones) 도입
+  * 스터디의 목표 및 계획을 마일스톤으로 관리
+   
+
+</div>
+</details>
+
+<br>
+
+## TODO
+<details>
+<summary>자세히</summary>
+<div markdown="1">
+
+- [ ] PR 하는 법, README 작성하는 법, fork 후 fetch 하는 법 README에 정리
+- [ ] 추가되고 있는 스터디 규칙을 정리하여 업데이트
+- [ ] github.io 알아보기
+</div>
+</details>
