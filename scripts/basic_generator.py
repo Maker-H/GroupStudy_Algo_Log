@@ -132,7 +132,8 @@ if __name__ == "__main__":
     folder_len = len(get_list_of_presentation_folders_raw())
     
     table_len = 0
-    table_template = 10
+
+    table_template = 11
 
     while True:
         new_f = f.readline()

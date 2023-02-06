@@ -14,12 +14,14 @@
 |2023-02-01|04|[한방향 리스트 - 김재욱](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/03_%ED%95%9C%EB%B0%A9%ED%96%A5_%EB%A6%AC%EC%8A%A4%ED%8A%B8_230201)|
 |2023-02-03|05|[원형 양방향 리스트 - 진희솜 구본재](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EB%AC%B8%EC%A0%9C/02_%EC%8A%A4%ED%83%9D_%ED%81%90_%EB%8D%B1_%EB%A6%AC%EC%8A%A4%ED%8A%B8)||
 
+|2023-02-06|01|[해쉬 테이블 - 구본재](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/05_%ED%95%B4%EC%89%AC_%ED%85%8C%EC%9D%B4%EB%B8%94_230206)|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EB%AC%B8%EC%A0%9C/02_%EC%8A%A4%ED%83%9D_%ED%81%90_%EB%8D%B1_%EB%A6%AC%EC%8A%A4%ED%8A%B8)|
 <br />
 
 ---
 
 <br />
 <br />
+
 ### 👋 안녕하세요 방문자님 환영합니다!
 **스터디원이 아니더라도** 모두가 만들어가는 레포지토리가 되었으면 합니다.
 * 발표 자료나 문제들에 존재하는 이슈 혹은 **발표 자료에서 이해가 가지 않는 부분은** 디스커션에 있는 QnA 게시판에 올려주세요! - [[바로가기]](https://github.com/Maker-H/GroupStudy_Algo_Log/discussions/categories/q-a)
