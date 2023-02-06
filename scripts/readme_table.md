@@ -13,3 +13,5 @@
 |2023-01-30|03|[스택, 큐, 덱 - 진희솜](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/02_%EC%8A%A4%ED%83%9D_%ED%81%90_%EB%8D%B1_230130)|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EB%AC%B8%EC%A0%9C/02_%EC%8A%A4%ED%83%9D_%ED%81%90_%EB%8D%B1)|
 |2023-02-01|04|[한방향 리스트 - 김재욱](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/03_%ED%95%9C%EB%B0%A9%ED%96%A5_%EB%A6%AC%EC%8A%A4%ED%8A%B8_230201)|
 |2023-02-03|05|[원형 양방향 리스트 - 진희솜 구본재](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EB%AC%B8%EC%A0%9C/02_%EC%8A%A4%ED%83%9D_%ED%81%90_%EB%8D%B1_%EB%A6%AC%EC%8A%A4%ED%8A%B8)||
+|2023-02-06|06|[해쉬 테이블 - 구본재](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/05_%ED%95%B4%EC%89%AC_%ED%85%8C%EC%9D%B4%EB%B8%94_230206)||
+
