@@ -20,6 +20,7 @@
 
 <br />
 <br />
+
 ### 👋 안녕하세요 방문자님 환영합니다!
 **스터디원이 아니더라도** 모두가 만들어가는 레포지토리가 되었으면 합니다.
 * 발표 자료나 문제들에 존재하는 이슈 혹은 **발표 자료에서 이해가 가지 않는 부분은** 디스커션에 있는 QnA 게시판에 올려주세요! - [[바로가기]](https://github.com/Maker-H/GroupStudy_Algo_Log/discussions/categories/q-a)
