@@ -142,6 +142,7 @@ if __name__ == "__main__":
     table_len = table_len - table_template 
 
     print(table_len, folder_len)
+
     f.close()
     # 만약 폴더 개수가 더이상 리드미를 갱신할 필요가 없다면
     print(table_len , folder_len+1)
