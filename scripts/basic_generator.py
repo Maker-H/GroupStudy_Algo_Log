@@ -132,7 +132,7 @@ if __name__ == "__main__":
     folder_len = len(get_list_of_presentation_folders_raw())
     
     table_len = 0
-    table_template = 9
+    table_template = 10
 
     while True:
         new_f = f.readline()
@@ -145,8 +145,8 @@ if __name__ == "__main__":
 
     f.close()
     # 만약 폴더 개수가 더이상 리드미를 갱신할 필요가 없다면
-    print(table_len , folder_len+1)
-    if table_len >= folder_len+1:
+    print(table_len-1 , folder_len)
+    if table_len-1 > folder_len:
         pass
 
     else: 
