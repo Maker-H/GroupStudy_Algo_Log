@@ -21,7 +21,7 @@ for tc in range(T):
             print(*b)
 
     if A == 'pop_back':                         #pop_back에서는 c에 팝해준값을 할당 c를 출력
-        if len(a) == 0
+        if len(a) == 0:
             print(-1)
         else:
             c = a.pop()
