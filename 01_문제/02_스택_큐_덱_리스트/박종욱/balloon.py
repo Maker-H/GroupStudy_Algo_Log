@@ -14,4 +14,4 @@ while T != 0:                                           # T==0이 될때까지 �
     elif k < 0:
         a.rotate(-k)                                    #음수면 k만큼 뒤로 회전
 
-print(new_list)
+print(*new_list)
