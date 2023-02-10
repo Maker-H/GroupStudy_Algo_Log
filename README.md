@@ -1,5 +1,13 @@
 # 자료구조와 알고리즘 스터디
-> 참여자 : 구본재, 김선영, 김재욱, 김현지, 박종욱, 안영기, 진희솜
+
+
+<details>
+<summary> 참여자 : 김재욱, 김현지, 박종욱, 안영기, 진희솜 </summary>
+<div markdown="1">
+구본재(~23/02/06), 김선영(~23/02/10)
+</div>
+</details>
+
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMaker-H%2FGroupStudy_Algo_Log&count_bg=%233A53D4&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
