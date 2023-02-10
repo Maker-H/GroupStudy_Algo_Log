@@ -157,14 +157,14 @@
 **append 구현**
 
 ```python
-**A.append(x)**:
+A.append(x):
 
 	if A.n < A.capacity: -> 저장공간이 더 크면
 		A[n] = x -> n을 인덱스로 사용
 		A.n = n + 1 -> 원소 추가로 n+1
 
 	elif A.n == A.capacity: -> 용량이 다 참
-		B = (**A.capacity * 2 크기의 리스트 할당**)
+		B = (A.capacity * 2 크기의 리스트 할당)
 
 			for i in range(n): -> O(n)
 				B[i] = A[i] -> 이사
@@ -267,11 +267,11 @@ Class Stack:
 	def __init__(self):
 		self.items = []
 	
-	def push(self, val): **O(1)**
+	def push(self, val): O(1)
 		self.items.append(val) 
 		-> items에 val 들어간다
 
-	def pop(self):  **O(1)**
+	def pop(self):  O(1)
 		try:
 			return self.items.pop()
 			-> items 끝의 원소를 삭제 후 리턴
@@ -279,14 +279,14 @@ Class Stack:
 		except IndexError:
 			print("Stack is empty")
 
-	def top(self):  **O(1)**
+	def top(self):  O(1)
 		try:
 			return self.items[-1]
 			-> 리스트 끝에 있는 원소값 리턴
 		except IndexError:
 			print("Stack is empty")
 
-	def __len__(self):  **O(1)**
+	def __len__(self):  O(1)
 		return len(self, items)
 
 ```
@@ -529,7 +529,7 @@ FIFO(First-In First-Out) 규칙의 순차적 자료구조
 class Queue:
 	def __init__(self):
 		self.items = []
-		**self.front_index = 0**
+		self.front_index = 0
 	
 	def enqueue(self, val):
 		self.items.append(val)
@@ -582,7 +582,7 @@ def Joshephus(n, k):
 	
 	while len(Q) != 1:
 		# k번째까지는 디큐 후 인큐
-		for i in **range(1, k+1)**:
+		for i in range(1, k+1):
 			Q.enqueue(Q.dequeue())
 		# K+1번째는 디큐(죽인다)
 		Q.dequeue()
@@ -643,7 +643,7 @@ class Deque:
 			if len(self.items) != 0:
 				tmp = self.items[self_front_index]
 				self.items[self_front_index] = None
-				**self.front_index = (self.front_index + 1) % self.max**
+				self.front_index = (self.front_index + 1) % self.max
 				return tmp
 			elif len(self.items) == 0:
 				print('deque is empty')
