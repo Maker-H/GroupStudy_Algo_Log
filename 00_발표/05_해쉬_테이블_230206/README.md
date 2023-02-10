@@ -12,8 +12,11 @@
 
 </br>
 Q : 발표자료에 해시테이블 삽입,삭제,탐색 연산의 시간복잡도를 O(n)이라고 적어 놓으셨는데 제가 알기로는 해시테이블의 시간복잡도는 O(1)이다 어느쪽이 맞나 ?
+
 <br>
+
 A : 결론적으로 말하면 해시테이블의 시간복잡도는 O(1)이 맞다. 그런데 이 값은 테이블에서 데이터가 차지하는 정도인 Load factor를 일정하게 유지 시켜주는 방법과 C-universal등의 Collision resolution method등을 통해서 개선이 되었을때 나온다. 
+
 </br>
 <hr>
 
@@ -266,6 +269,17 @@ return h % m(size of hash table)
 <br><br>
 
 # Collision resolution method
+
+<br>
+
+**Collision resolution method의 종류** 
+- open addressing
+    - linear probing
+    - quadratic probing
+    - double hashing
+- chaining
+
+<br>
 
 ## **Cluster**
 
