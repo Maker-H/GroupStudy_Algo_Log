@@ -3,7 +3,6 @@
 ## 𝐈𝐧𝐟𝐨
 
  - 📌 발표자 : [Maker-H](https://github.com/Maker-H)
- - 📌 작성자 : [Maker-H](https://github.com/Maker-H)
  - 🗓️ 2023-01-28
     
 ### QnA
