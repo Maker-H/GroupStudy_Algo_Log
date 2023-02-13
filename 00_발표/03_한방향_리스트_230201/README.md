@@ -2,7 +2,7 @@
 
 ## 𝐈𝐧𝐟𝐨
 
-- 📌 발표자 : 김재욱
+- 📌 발표자 : [jaewook718](https://github.com/jaewook718)
 - 🗓️ 2023-02-01
 
 ### QnA

@@ -2,8 +2,8 @@
 
 ## 𝐈𝐧𝐟𝐨
 
-- 📌 발표자 : 구본재
-- 📌 작성자 : 진희솜, 구본재
+- 📌 발표자 : [Bonjae9](https://github.com/Bonjae9)
+- 📌 작성자 : [Bonjae9](https://github.com/Bonjae9), [Maker-H](https://github.com/Maker-H)
 - 🗓️ 2023-02-03
 
 ### QnA
