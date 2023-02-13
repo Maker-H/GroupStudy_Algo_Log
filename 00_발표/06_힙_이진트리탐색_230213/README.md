@@ -24,7 +24,8 @@
 
 ### 트리의 용어
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/08132190-1085-4f2a-a4d2-9fcb06996cf5/Untitled.png)
+![image](https://user-images.githubusercontent.com/122584209/218399528-0d4c758e-8a1a-4b1c-8dfe-96b91faefbf9.png)
+
 
 - 노드(Node) : 각각의 요소
 - 엣지(Edge) : 노드를 연결하는 선, 링크라고도 부름
@@ -61,7 +62,7 @@
 
 - 부모노드와 키값, 자식노드를 직접 표현
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a3ea8933-0857-4c3c-96a3-3e2e2f5faa2c/Untitled.png)
+![image](https://user-images.githubusercontent.com/122584209/218399609-c067c1fb-a36a-4d46-8ddb-6aeb331bbc45.png)
 
 # 힙(heap) 1
 
@@ -101,7 +102,7 @@ H = [a, b, c, None, d, e, f]
 
 `A = [2,8,6,1,10,15,3,12,11]`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/967a587d-c41c-4f33-bda7-4384fc9e96b3/Untitled.png)
+![image](https://user-images.githubusercontent.com/122584209/218399692-926574e5-a78d-4327-9429-932cc6f324bc.png)
 
 위와같이 heap성질을 만족하지 않는 리스트를 힙 성질에 맞도록 변경하는 것을 `make_heap`, 이를 위해 `heapify_down`을 반복적으로 수행
 
