@@ -5,13 +5,10 @@
 - 📌 발표자 : [Anyounggi](https://github.com/Anyounggi)
 - 🗓️ 2023-02-13
 
-### QnA
 
 
 <br><br>
-# 트리 정리
 
----
 
 # 트리(tree)
 
@@ -22,12 +19,17 @@
 - 자식이 하나만 있거나 없는 경우를 연결리스트
 - 자식이 최대 두 개인 트리를 **이진 트리** - 가장 많이 쓰임
 
+<br>
+
 ### 트리의 용어
 
 ![image](https://user-images.githubusercontent.com/122584209/218399528-0d4c758e-8a1a-4b1c-8dfe-96b91faefbf9.png)
 
 
-- 노드(Node) : 각각의 요소
+- 노드 : 키를 포함하는 개별 객체
+    - 부모 노드 : 나와 직접적으로 연결된 상위노드
+    - 형제노드 : 나와 같은 부모를 둔 같은 레벨에 있는 노드
+    - 자식 노드 : 나와 직접적으로 연결된 하위 노드
 - 엣지(Edge) : 노드를 연결하는 선, 링크라고도 부름
 - **루트(root) 노드** : 최고 조상, 트리는 항상 루트에서부터 시작하고 하나만 가짐
 - 리프(leaf) 노드 : 자식이 없는 노드
@@ -36,20 +38,65 @@
 - 높이 : 현재 노드 - 리프의 거리
   - **트리 높이** : 루트 노드의 높이
 - 경로(path) : 두 노드 사이를 연결하는 엣지의 시퀀스
-  - A &H의 경로 : A - B - D - H / 경로 길이 : 6
+  - A - H의 경로 (A - B - D - H)
+  - 경로 길이 : 4
 - **크기(size)** : 트리에 포함된 모든 노드의 개수
 
-### 표현법
+<br>
 
-1. **리스트**
+## 트리 표현법
 
-`A = [2,8,6,1,10,15,3,12,11]`
+### 1. **리스트**
 
 - 부모노드가 자식노드 2개씩 가지고 있다고 가정하고 리스트를 구성, 비어있는 자식 노드는 None으로 처리
 
-1. 리스트(재귀적)
+<br>
 
-`[a, [a의 왼쪽 부트리], [a의 오른쪽 부트리]]`
+**<아래의 트리 가정했을 때>**
+
+<img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/218629710-6bdab3d9-33cd-4041-9b63-38b3b120d992.png'>
+
+
+
+- level 0인 a부터 저장
+    - L = [a]
+- level 1 중 왼쪽에 있는 b, 그 다음 c 저장
+    - L = [a, b, c]
+- level 2 중 왼쪽에 있는 노드부터 저장하려고 하는데 **b의 자식이 1개 뿐이기에 None으로 이를 표현**
+    - L = [a, b, c, **None, d, e, f**]
+- level 3 중 왼쪽에 있는 노드부터 저장하려고 하는데 b의 자식의 자식 노드를 표시해줘야 함으로 None으로 이를 표현
+    - L = [a, b, c, None, d, e, f, **None, None, h, i, g** ]
+
+<br>
+
+**리스트 표현법의 장점**
+
+- 비어 있는 곳을 None으로 처리하기 때문에 자식, 부모 노드를 인덱스로 바로 찾아갈 수 있다 → **O(1)**으로 처리 가능
+- H[0]
+    - 왼쪽 자식 → H[ 0*2 **+ 1** ]
+    - 오른쪽 자식 → H[ 0*2 **+ 2** ]
+- H[2]
+    - 왼쪽 자식  → H[ 2*2 **+ 1** ] = H[5]
+    - 오른쪽 자식 → H[ 2*2 **+ 2** ] = H[6]
+- H[k]
+    - 왼쪽 자식 → H[ k*2 **+ 1** ]
+    - 오른쪽 자식 → H[ k*2 **+ 2** ]
+    - 부모 노드 → H[ (**k-1) // 2** ]
+
+<br>
+
+**리스트 표현법의 단점** 
+
+- 모든 노드가 다 차있다고 가정하기에 None으로 채움으로써 메모리를 낭비할 수 있다
+
+<br>
+
+## 2. **리스트(재귀적)**
+
+<img width="245" alt="image" src= 'https://user-images.githubusercontent.com/83294376/218630279-30708469-7956-4c30-a146-109c5805fb86.png'>
+
+
+`[a, [a의 왼쪽 부트리], [a의 오른쪽 부트리]]`를 중첩으로 표현
 
 - [a의 왼쪽 부트리] = `[b, [], [d, [], []]]`
 - [a의 오른쪽 부트리] = `[c, [e, [], []], [f, [], []]]`
@@ -58,19 +105,22 @@
 
 [이진트리그리기](http://ironcreek.net/syntaxtree/)
 
-1. 노드 class
+<br>
+
+## 3. 노드 class
 
 - 부모노드와 키값, 자식노드를 직접 표현
+- parent, left, right, key(or value)
 
 ![image](https://user-images.githubusercontent.com/122584209/218399609-c067c1fb-a36a-4d46-8ddb-6aeb331bbc45.png)
 
-# 힙(heap) 1
 
----
+<br>
+<br>
 
-힙 성질을 만족하는 이진트
-
-**리스트 표현법**
+# 힙(heap)
+* 힙 성질을 만족하는 **이진트리**(자식이 최대 2개)
+* **리스트 표현법 사용**
 
 ```python
 H = [a, b, c, None, d, e, f]
@@ -81,88 +131,180 @@ H = [a, b, c, None, d, e, f]
 - 부모노드, 자식노드의 위치 상수시간에 계산 가능
 - None표시가 자리를 차지 → 레벨을 꽉 채워 낭비를 줄임
 
-### heap
+<br>
 
-1. 모양성질 : 레벨을 모두 채우고 마지막 레벨은 왼쪽부터
-  
-2. heap성질 : 모든 부모노드 key값은 자식노드 key값 이상
-  
-  - 루트노드의 key값이 가장 큼
+### **힙의 조건**
 
-- 제공연산
-  - `insert`
-  - `find_max`
-  - `delete_max`
+- 모양 성질
+    - **레벨 별로 모든 노드가 (None이 없이) 꽉 차있고** 마지막 레벨만 노드가 왼쪽부터 채워져 있는 형태
+- 힙 성질
+    - **부모 노드의 key 값이 자식노드의 key값보다 커야 한다**
+    - 항상 루트 노드에 가장 큰 값이 들어있다
+
+<br>
+
+### **제공연산**
+- `insert`
+  - O(logn)
+- `find_max`
+  - O(1)
+  - 파이썬의 max( ) 는 O(n)
+- `delete_max`
+  - O(logn)
 
 > `insert`, `delete_max`는 연산 이후 heap상태를 유지해주는 연산 필요 - O(log n)
 
+<br>
+
+### 특이사항
+
+- search는 비효율적이기 때문에 사용할 이유가 없다
+- find_min, delete_min을 만들고 싶다면 min이 제일 위로 오는 힙을 만들면 된다
+
+<br>
+<br>
+
 # 힙(heap) 2
 
----
 
-`A = [2,8,6,1,10,15,3,12,11]`
-
+## make_heap 구현 
 ![image](https://user-images.githubusercontent.com/122584209/218399692-926574e5-a78d-4327-9429-932cc6f324bc.png)
 
 위와같이 heap성질을 만족하지 않는 리스트를 힙 성질에 맞도록 변경하는 것을 `make_heap`, 이를 위해 `heapify_down`을 반복적으로 수행
 
+- 부모와 자식들의 값을 비교하며 리프까지 내려가는 연산
 - 리스트의 가장 오른쪽 숫자부터 순서대로 진행
 
-→ 자식노드와 비교하여 가장 큰 값을 부모 노드자리로 이동
+1. **제일 마지막 level에 있는 노드부터 비교한 뒤(1, 12, 11) 교환**
+![image](https://user-images.githubusercontent.com/83294376/218639618-7aeb47ff-35b7-489f-8dc2-9eb743063cce.png) 
+     - [2, 8, 6, 1, 10, 15, 3, 12, 11] → [2, 8, 6, 12, 10, 15, 3, 1, 11]
+2. **마지막 level 바로 전의 level, 가장 오른쪽에 있는 노드들을 비교한 뒤(6, 15, 3) 교환** 
+![image](https://user-images.githubusercontent.com/83294376/218639675-b5011cfb-393a-47ec-9945-de397d097a7d.png)
+      - [2, 8, 6, 12, 10, 15, 3, 1, 11] → [2, 8, 15, 12, 10, 6, 3, 1, 11]
+3. **그 왼쪽에 있는 트리의 노드들을 비교한 뒤(8, 12, 10) 교환**
+![image](https://user-images.githubusercontent.com/83294376/218639727-471c0136-14d4-430e-a5ea-0ce5c1cba927.png)
+      - [2, 8, 15, 12, 10, 6, 3, 1, 11] → [2, 12, 15, 8, 10, 6, 3, 1, 11] 
+4. **8의 자식 노드들을 비교한 뒤(8, 1, 11) 교환**
+![image](https://user-images.githubusercontent.com/83294376/218639788-16cdcda9-ff16-477c-9c16-c6cd0932d9a6.png)
+      - [2, 12, 15, 8, 10, 6, 3, 1, 11] → [2, 12, 15, 11, 10, 6, 3, 1, 8] 
+5. **마지막으로 루트 노드를 살펴준다 (2, 12, 15)**
+![image](https://user-images.githubusercontent.com/83294376/218639815-aea5e52e-1368-4a47-b49f-8d7f3cff704d.png)
+    1. 가장 큰 숫자인 2와 15를 바꾼다
+    2. 2가 자신의 자리가 아님으로 2의 자식 노드들을(2, 6, 3) 살펴준다
+    3. 해당 트리에 속한 숫자 중 가장 큰 6과 자리를 바꾼다
 
 ```python
-make_heap(A):
-  n = len(A)
-  for k in range(n-1, -1, -1):
-    #A[k] -> heap 성질 만족하는 곳으로 내려보낸다.
-    heapify_down(k, n) # k = A[k], n = heap원소 개수
+def make_heep(self, H):
+  n = len(self.H)
+	
+  # 리프노드부터 루트노드까지 비교
+  for idx in range(n-1, -1, -1):
+    heapify_down(idx, n)  # k = A[k], n = heap원소 개수
 ```
+*  range(n-1, -1, -1) → range(n//2 -1, -1)로 변경해도 마지막 level의 노드 $2^h$개가 리프 노드기에 문제없다
 
+<br>
+
+``` python
+def heapify_down(self, idx, n):
+
+  # 전달 받은 노드의 부모와 자식들을 비교했는데 교환하게 된다면
+  # 자신 자리가 아닌 자리에 가는 것이기에
+  # 리프노드가 나올때 까지 비교해야 한다
+  while 2*idx + 1 < n:
+
+	  L = 2 * idx + 1 # 왼쪽 자식
+	  R = 2 * idx + 2 # 오른쪽 자식
+		
+	  # 왼쪽 자식이 부모보다 크다면
+	  if self.H[L] > self.H[idx]:
+	    m = L # m = max val idx
+	  else:
+	  	m = idx
+
+	  # 오른쪽 자식이 부모보다 크다면
+	  # 오른쪽 자식의 out of range 가능성 방지
+	  if R < n and self.H[R] > self.A[m]:
+    	m = R # m = max val idx
+	  else:
+    	m = idx
+
+    # 부모(idx)와 자식이 다르면 교환
+    if m != idx: 
+    	self.H[idx], self.H[m] = self.H[m], self.H[idx]
+      idx = m
+    # 부모가 제일 크다면 더 내려갈 이유가 없다
+    else:
+      break
+```
+- w.c는 루트부터 가장 깊은 레벨의 리프까지 내려가는 것
+
+
+
+<br>
+
+pseudo code (축약해서 이해)
 ```python
 heapify_down(k, n):
-  # A[k], n값
-  while A[k] != leaf:
+  # H[k], n값
+  while H[k] != leaf:
     L, R = 2*k+1, 2*k+2
-    m = index_max(A[k], A[L], A[R]) # 셋중에 가장 큰 인덱스
+    m = index_max(H[k], H[L], H[R]) # 셋중에 가장 큰 인덱스
     if k != m:
-      # A[K], A[m]을 swap
+      # H[K], H[m]을 swap
     else:
       break
 ```
 
+<br>
+
 ### 성능
 
-`make_heap` 은 `heapify_down` 을 n번 호출
+* `make_heap` 은 `heapify_down` 을 n번 호출
 
-`heapify_down` 의 최악의 입력은 root에서 최하단 leaf까지 → 높이(h)
+* `heapify_down` 의 최악의 입력은 root에서 최하단 leaf까지 → 높이(h)
 
-`make_heap` O(nh)
+* `make_heap` O(nh)
+
+<br>
+
+- `heapify_down`: O(h) = O(log N)
+- `make_heap`: o(nh) = O(n log N) (리프 노드부터 가는걸 생각하면 O(n) 시간에도 된다는걸 알 수 있다)
+
+<br>
+
+### n개의 노드를 가진 힙의 높이
 
 n개의 노드를 가진 힙의 높이 h는?
 
 - level 0 : 1
 - level 1 : 2
-- level 2 : 2^2
-- level 3 : 2^3
-- level h - 1 : 2^(h-1)
-- level h : < 2^h
+- level 2 : $2^2$
+- level 3 : $2^3$
+- level h - 1 : $2^{h-1}$
+- level h : < $2^h$
 
-다 더하면 1 + 2 + 2^2 +..... + 2^(k-1) + 1 <= n
+<br>
 
-1 + 2 + 2^2 +.....+ 2^(k-1) = (2^h -1 / 2 - 1) + 1 = 2^h <= n
+- 마지막 level 이전까지의 노드 개수
+    - $1 + 2^1 + 2^2 + 2^3 + 2^4 + 2^5 + 2^6 ... + 2^{h-1}$
+- 마지막 level의 노드 개수 (= 최소 1개) $< 2^h$
+- $1 + 2^1+ ... + 2^{h-1}$ **+ 1** ≤ n (n개의 노드를 가진 힙)
+    - $1 + 2^1+ ... + 2^{h-1}$ = $2^h - 1 / 2 - 1$
+- ($2^h - 1 / 2 - 1$ + 1 = ) $2^h$  ≤ n
+- **최종** : $log_2^{2^h}$ ≤ $log_2^n$ → h ≤ $log_2^n$
 
-`h <= $log$2 n
 
-- `heapify_down`: O(h) = O(log N)
-- `make_heap`: o(nh) = O(n log N) (사실은 O(n) 시간에도 된다)
+<br><br>
 
 # 힙(heap) 3
 
----
+## insert 구현
+- 삽입 연산 이후로도 힙 성질을 만족해야 한다
+- heapify_up 연산 사용
+    - 부모와 자식의 값을 비교하며 루트노드까지 올라가는 연산
 
-### insert 연산
-
-`A = [15,12,6,11,10,2,3,1,8]` 에 14를 삽입하면 heap성질 만족 X
+`A = [15,12,6,11,10,2,3,1,8]` 에 append(14) 하면 heap성질 만족 X
 
 ```
           15
@@ -174,23 +316,38 @@ n개의 노드를 가진 힙의 높이 h는?
   1   8 14
 ```
 
-14의 부모노드인 10과 자리를 변경, 바뀐 자리에서 부모노드인 12와 변경하면 힙 성질 만족
+14의 부모노드인 10과 자리를 변경, 바뀐 자리에서 부모노드인 12와 변경하면 힙 성질 만족한다
 
-→ 부모노드로 가면서 자신의 자리를 찾도록 만드는 함수`heapify_up`
+![image](https://user-images.githubusercontent.com/83294376/218644643-6f0894fd-2a27-41b1-a9b6-4fd9993c8f31.png)
+
+<br>
+
+`heapify_up`
+- 부모노드로 가면서 자신의 자리를 찾도록 만드는 함수
 
 ```python
-insert(14)
-  A.append(14)
-  A.heapify_up(9)
-  # A[k]를 root 방향으로 이동하면서 heapify를 해준다.
+def insert(self, val):
+  self.H.append(val)
+  self.H.heapify_up(len(self.H))
+  # append 했기에 마지막 리프노드부터 
+  # root 방향으로 이동하면서 heapify up을 해준다.
 
-heapify(k):   # k = 삽입한 노드의 인덱스
-  while k > 0 and A[(k -1)//2)] < A[k]: # 부모노드와 비교
-    A[k], A[(k-1) //2] = A[(k-1) //2], A[k]   # 자리 변경
-    k = (k - 1) // 2
+
+def heapify_up(self, target_idx):
+  child_idx = (target_idx - 1) // 2
+  
+  # 루트에 도달하지 않았고
+  # 부모의 값이 자식보다 작으면
+  while idx > 0 and self.H[child_idx] < self.H[idx]:
+    self.H[target_idx] , self.H[child_idx] = self.H[child_idx], self.H[target_idx]
+
+    # 자식의 인덱스를 다시 메인 인덱스로 만든다
+    target_idx = child_idx
 ```
 
-### find_max 연산
+<br>
+
+### find_max 구현
 
 ```python
 find_max:
@@ -199,32 +356,86 @@ find_max:
 
 힙성질을 만족하고 있으면 루트노드가 가장 큰 수
 
-### delete_max 연산
+<br>
 
-- A[0]을 없애면서 가장 마지막 리프노드를 루프로 옮김
-- `heapify_down(0, n)` 통해 재정
+### delete_max 구현
+- 가장 큰 값을 삭제
+- 가장 마지막 리프 노드가 임의로 루트 노드 자리를 채운다
+- `heapify_down(0, n)` 통해 root부터 재정리
+  - O(logN)
 
 ```python
-delete_max: # O(logN)
-  if len(A) == 0: return None
-  key = A[0]
-  A[0], A[len(A) - 1] = A[len(A) - 1], A[0]
-  A.pop()
-  heapify_down(0, len(A))
+def delete_max(self):
+  if len(H) == 0:
+    return None
+
+  key = self.H[0]
+  self.H[0] = self.H[len(self.H)-1]
+  self.H.pop()
+  self.H.heapify_down(0, len(self.H))
+
   return key
 ```
 
+<br>
+
 ### 성능
 
-- `heapify_up` , `insert`: O(logN)
-- `find_max`: O(1)
-- `delete_max`: O(logN)
+- `heapify_up`
+  - O( h(level) ) → O(logN)
+- `insert` 구현
+  - O(logN)
+  - n개의 숫자를 insert해서 힙을 만들면 O(NlogN)
+- `find_max`
+  - O(1)
+- `delete_max` 
+  - O(logN)
 
 힙은 정리가 되어있지 않아 모두 탐색해야 하므로, `search`함수를 지원하지 않음
 
-# 이진트리(Binary tree)
+<br>
 
----
+### heap sort 구현
+- 힙이 아니라면 `make_heap`으로 힙을 만든 후, `heapify_down` 함수를 반복 적용하여 값들을 오름차순으로 재배치하는 함수
+  - `make_heap`으로 기존의 리스트를 정렬시킨다면 O(N)
+  - `heap_sort`를 사용한다면 O(NlogN)
+```python
+def heap_sort(self): 
+  n = len(self.H)
+
+  for idx in range(len(self.H)-1, -1, -1): 
+    self.H[0], self.H[idx] = self.H[idx], self.H[0]
+		
+    # 마지막 리프는 루트의 값이 들어갔음으로
+    n = n - 1
+    self.heapify_down(0, n)
+```
+
+<br>
+
+## Python에서의 힙
+
+- **min-heap**을 사용한다! 우리는 max-heap을 다루었다
+    - `import heapq` 필요
+    - 리스트를 사용
+<br>
+
+**지원연산**
+- `heappush(h, key)`
+    - 힙 h에 key값을 삽입(=insert와동일)
+    - heappush(h, (key, value))처럼 튜플 삽입 가능
+- `heappop(h)`
+    - 최소값을 지우고 리턴 (delete_min)의 역할
+- `heapify(A)`
+    - 리스트 A를 힙 성질이 만족되도록 변환
+    - make_heap()과 동일 (단, min-heap으로 변환)
+- h[0]: 힙의 최소값을 알고 싶다면 사용
+
+
+
+<br><br>
+
+# 이진트리(Binary tree)
 
 이진트리의 표현법
 
