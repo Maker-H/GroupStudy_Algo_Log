@@ -36,10 +36,10 @@
 
 ## 👋 안녕하세요 방문자님 환영합니다!
 **스터디원이 아니더라도** 모두가 만들어가는 레포지토리가 되었으면 합니다.
-* 발표 자료나 문제들에 존재하는 이슈 혹은 **발표 자료에서 이해가 가지 않는 부분은** 디스커션에 있는 QnA 게시판에 올려주세요! - [[바로가기]](https://github.com/Maker-H/GroupStudy_Algo_Log/discussions/categories/q-a)
+* 발표 자료나 문제들에 존재하는 이슈 혹은 **발표 자료에서 이해가 가지 않는 부분은** 디스커션에 있는 [QnA](https://github.com/Maker-H/GroupStudy_Algo_Log/discussions/categories/q-a) 게시판에 올려주세요!
 * 추가되었으면 하는 자료, 부족한 부분을 알려주실 때도 [디스커션](https://github.com/Maker-H/GroupStudy_Algo_Log/discussions/categories/q-a)에 남겨두시면 확인하고 업데이트 하겠습니다.
 * 문제의 🔥 ☑️ 기호는 실버 기준 1일 2문제, 골드 기준 1일 1문제씩 총 5일 기준으로 구성되어 있습니다. 
-* 스터디 진도는 [이슈](https://github.com/Maker-H/GroupStudy_Algo_Log/issues) 혹은 [마일스톤](https://github.com/Maker-H/GroupStudy_Algo_Log/milestones)에서 확인하실 수 있습니다.
+* 스터디에서 현재 진행중인 진도는[이슈](https://github.com/Maker-H/GroupStudy_Algo_Log/issues) 전체 진도는 [노션 캘린더](https://fire-repair-709.notion.site/96867327d39c4489adf74cb7b7583eb8)에서 확인하실 수 있습니다.
 
 <br />
 <br />
@@ -113,6 +113,7 @@ git commit -m "[진희솜] 스택 / 균형잡힌 세상 / 브론즈" -m "https:/
 ## ✅ 코드리뷰 발표
 * 1명 
     * 페어가 정해지지 않은 1명이 본인이 푼 문제 중 제일 어려운 문제를 설명(발표)한다.
+      * 코드의 시간복잡도, 해당 문제에 그러한 자료구조를 사용한 이유를 반드시 설명
     * 문제를 덜 푼 사람 중 1명을 random으로 선정한다
 * 3명 : 당일 아침 random으로 3명을 선정한다.
     * 코드 리뷰 이후 배운 점, 소감 등을 발표한다.
