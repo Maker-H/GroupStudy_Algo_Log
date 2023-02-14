@@ -406,7 +406,8 @@ def heap_sort(self):
   for idx in range(len(self.H)-1, -1, -1): 
     self.H[0], self.H[idx] = self.H[idx], self.H[0]
 		
-    # 마지막 리프는 루트의 값이 들어갔음으로
+    # 마지막 리프는 루트의 값이 들어갔음으로 제외하고 
+    # 힙으로 다시 만들어준다
     n = n - 1
     self.heapify_down(0, n)
 ```
@@ -431,8 +432,193 @@ def heap_sort(self):
     - make_heap()과 동일 (단, min-heap으로 변환)
 - h[0]: 힙의 최소값을 알고 싶다면 사용
 
+<br><br>
+
+# 적응형 힙(Adaptive Heap)
+
+- 최소 혹은 최대의 값만을 제거할 수 있는 기존의 힙에서 **특정한 값을 찾아 제거**할 수 있도록 하는 힙
+- 힙은 그대로 둔 채 **값만 바꿀 수 있게** 하는 힙
 
 
+<max-heap으로 구현>
+
+```python
+class AdapedHeap:
+
+  # key 값과 key 값이 저장된 인덱스를 담는 중첩 클래스 선언
+  class Locator:
+    def __init__(self, key, l_idx):
+      self.key = key 
+      #(optional) self.value = value 
+      self.l_idx = l_idx
+
+
+  def __init__(self):
+    self.H = []
+
+
+  def __str__(self):
+    return str(self.H)
+
+
+  def __len__(self):
+    return len(self.H)
+
+
+  def insert(self, key)
+    # 저장하고 싶은 값과 저장될 인덱스를 locator로 전송
+    # append 하기에 끝 인덱스 전송
+    loc = self.Locator(key, len(self.H))
+    # 삽입
+    self.H.append(loc)
+    # loc이 저장된 곳에서 부터 올라가며 교환 
+    self.heapify_up(loc.l_idx)
+    return loc
+
+
+  def heapify_up(self, main_idx):
+    parent_idx = (main_idx - 1) // 2
+
+    # out of range 방지
+    # 자식 위에 부모가 존재하고, 자식이 부모보다 더 클 경우
+    if parent_idx > 0 and self.H[parent_idx].key < self.H[main_idx].key:
+      # key 교환
+      self.H[main_idx].key, self.H[parent_idx].key = self.H[parent_idx].key, self.H[main_idx].key
+      # 인덱스 교환 
+      self.H[main_idx].l_idx = main_idx
+      self.H[parent_idx].l_idx = parent_idx
+
+      # 부모를 다시 main으로 비교, 교환하는 재귀적 연산 수행
+      heapify_up(self, parent_idx) 
+
+
+  def heapify_down(self, main_idx, h_len):
+    # len_h = 전달된 len(self.H)
+    L_idx = self.H[main_idx]*2 + 1
+    R_idx = self.H[main_idx]*2 + 2 
+
+    # 왼쪽 자식이 out of range가 아니고
+    # 부모보다 더 큰 값이라면
+    if L < h_len and self.H[L_idx].key > self.H[main_idx].key:
+      # key 교환
+      self.H[L_idx].key, self.H[main_idx].key = self.H[main_idx].key, self.H[L_idx].key
+      # 인덱스 교환 
+      self.H[L_idx].l_idx = L_idx
+      self.H[main_idx].l_idx = main_idx
+
+      # 바뀐 자리는 자기 자리가 아님으로 다시 비교후 교환하는 재귀적 연산 수행
+      heapify_down(self, L_idx)
+		
+
+    # 오른쪽 자식이 out of range가 아니고
+    # 부모보다 더 큰 값이라면
+    if R_idx < h_len and self.H[R_idx].key > self.H[main_idx].key:
+      # key 교환
+      self.H[R_idx].key, self.H[main_idx].key = self.H[main_idx].key, self.H[R_idx].key
+      # 인덱스 교환 
+      self.H[R_idx].l_idx = R_idx
+      self.H[main_idx].l_idx = main_idx
+
+      # 바뀐 자리는 자기 자리가 아님으로 다시 비교, 교환하는 재귀적 연산 수행
+      heapify_down(self, R_idx)		
+```
+
+* loc 자체를 swap하는게 아니라 key와 value를 따로 따로 swap하는 이유 
+  * loc 자체를 swap할 경우 어차피 인덱스를 따로 교환해줘야 하기 때문. 
+  * 해당 코드에서는 코드의 명료함을 위해 따로따로 swap 하였다.
+
+<br>
+
+## A-Heap의 remove 구현
+
+- key가 아닌 locator 전달하여 인덱스로 값을 바로 찾아가 제거할 수 있다
+- 특정한 값을 찾아 제거할 수 있도록 하는 연산
+- O(logN)
+    - w.c - 루트의 값 제거 하는 경우
+    - 루트부터 한 길을 따라 리프까지 재정렬
+
+```python
+def remove(self, loc):
+  target_idx = loc.l_idx
+
+  # 전달된 loc이 우리가 선언한 힙 안에 없다면 에러 발생
+  if not(0 <= target_idx < len(self.H) and self.H[target_idx] == loc):
+    raise ValueError('Invalid locator')
+
+  # 삭제할 loc을 제일 끝 리프와 교환
+  # 리프로 이동한 노드는 어차피 삭제할 것이기에 인덱스 조정 필요없다
+  self.H[target_idx].key, self.H[-1].key = self.H[-1].key, self.H[target_idx].key
+  self.H[target_idx].l_idx = target_idx
+	
+  # 마지막 노드 제거
+  self.H.pop()
+
+  # 교환된 자리가 자기 자리가 아님으로 다시 비교, 교환
+  heapify.down(self, target_idx)
+```
+
+<br>
+
+## A-Heap의 delete_max 구현
+
+- O(logN)
+    - 루트부터 한 길을 따라 리프까지 재정렬
+
+```python
+def delete_max(self):
+	self.H.remove(self.H[0])
+```
+<br>
+
+## A-Heap의 heap_sort 오름차순 구현
+
+- O(NlogN)
+    - w.c를 고려했을때 NlogN
+
+```python
+def heap_sort(self):
+	h_len = len(self.H)
+	for target_idx in range(len(self.H), -1, -1):
+		# heapify_down, heapify_up 둘다 max_heap으로 구현하였기에 루트가 가장 크다
+		# key 교환
+		self.H[0].key, self.H[target_idx].key = self.H[target_idx].key, self.H[0].key
+
+		# 인덱스 교환
+		self.H[0].l_idx = 0
+		self.H[target_idx].l_idx = target_idx
+		
+		# 루트가 가장 마지막으로 갔음으로 이 노드는 고정시킨다
+		h_len = h_len - 1
+		self.heapify_down(0, h_len)
+```
+
+`update_key`
+
+- 기존의 힙에서 insert를 하면 제일 마지막 리프에 추가해서 heapify_up 사용했지만
+- update_key는 목표로 하는 노드의 key값을 바꿔준다
+- O(logn)
+    - w.c - 루트에 더 작은 key가 들어오는 경우
+
+```python
+def update_key(self, target_loc, new_key):
+	target_idx = target_loc.l_idx 
+	
+	# key를 바꾸려는 loc이 해당 힙에 존재하지 않는다면 에러 발생	
+	if not(0 <= k <len(self.H) and self.H[target_idx] == loc):
+		raise ValueError('Invalid locator')
+
+	# 새로 들어오는 키가 더 작다면 아래로 가야한다
+	# max-heap을 만들고 있기에 작은 노드가 리프에 있어야 한다
+	if target_loc.key > new_key:
+		target_loc.key = new_key
+		self.heapify_down(target_idx) 
+
+	# 새로 들어오는 키가 더 크다면 위로 가야한다
+	# max-heap을 만들고 있기에 큰 노드가 루트에 있어야 한다
+	elif target_loc.key < new_key:
+		target_loc.key = new_key
+		self.heapify_up(target_idx)
+```
 <br><br>
 
 # 이진트리(Binary tree)
