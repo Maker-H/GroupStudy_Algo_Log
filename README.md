@@ -1,6 +1,14 @@
-# 자료구조와 알고리즘 스터디
+# 자료구조와 알고리즘 스터디 
 
-> 참여자 : [jaewook718](https://github.com/jaewook718), [hjhj-kk](https://github.com/hjhj-kk), [jongwook123](https://github.com/jongwook123), [Anyounggi](https://github.com/Anyounggi), [Maker-H](https://github.com/Maker-H) 
+> 해당 레포지토리는 신찬수 교수님의 자료구조 강의를 참고하였습니다.
+<code style="display: inline-flex; justify-content: flex-end; align-items: baseline;">[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMaker-H%2FGroupStudy_Algo_Log&count_bg=%233A53D4&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)</code>
+
+
+
+<br>
+
+### 참여자
+> [jaewook718](https://github.com/jaewook718), [hjhj-kk](https://github.com/hjhj-kk), [jongwook123](https://github.com/jongwook123), [Anyounggi](https://github.com/Anyounggi), [Maker-H](https://github.com/Maker-H) 
 
 <details>
 <summary>자세히</summary>
@@ -13,11 +21,12 @@
 </div>
 </details>
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMaker-H%2FGroupStudy_Algo_Log&count_bg=%233A53D4&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 
 <br />
 
 ###  자료구조 목차
+
 |날짜       | 순번   |주제(발표자료)       |문제     |작성자     |
 | :-----:  | :-----:|:-----:              |:---------: |:-----: |
 |           | 01     |수학                 | [바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EC%88%98%ED%95%99_%EC%A0%95%EC%88%98%EB%A1%A0_%EC%A1%B0%ED%95%A9%EB%A1%A0)|
@@ -34,12 +43,12 @@
 <br />
 <br />
 
-## 👋 안녕하세요 방문자님 환영합니다!
+## 👋 안녕하세요 방문자님 환영합니다! 
 **스터디원이 아니더라도** 모두가 만들어가는 레포지토리가 되었으면 합니다.
 * 발표 자료나 문제들에 존재하는 이슈 혹은 **발표 자료에서 이해가 가지 않는 부분은** 디스커션에 있는 [QnA](https://github.com/Maker-H/GroupStudy_Algo_Log/discussions/categories/q-a) 게시판에 올려주세요!
 * 추가되었으면 하는 자료, 부족한 부분을 알려주실 때도 [디스커션](https://github.com/Maker-H/GroupStudy_Algo_Log/discussions/categories/q-a)에 남겨두시면 확인하고 업데이트 하겠습니다.
 * 문제의 🔥 ☑️ 기호는 실버 기준 1일 2문제, 골드 기준 1일 1문제씩 총 5일 기준으로 구성되어 있습니다. 
-* 스터디에서 현재 진행중인 진도는[이슈](https://github.com/Maker-H/GroupStudy_Algo_Log/issues) 전체 진도는 [노션 캘린더](https://fire-repair-709.notion.site/96867327d39c4489adf74cb7b7583eb8)에서 확인하실 수 있습니다.
+* 스터디에서 현재 진행중인 진도는 [이슈](https://github.com/Maker-H/GroupStudy_Algo_Log/issues) 전체 진도는 [노션 캘린더](https://fire-repair-709.notion.site/96867327d39c4489adf74cb7b7583eb8)에서 확인하실 수 있습니다.
 
 <br />
 <br />
