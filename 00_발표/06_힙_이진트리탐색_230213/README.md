@@ -3,6 +3,7 @@
 ## 𝐈𝐧𝐟𝐨
 
 - 📌 발표자 : [Anyounggi](https://github.com/Anyounggi)
+- 📌 작성자 : [Anyounggi](https://github.com/Anyounggi), [Maker-H](https://github.com/Maker-H)
 - 🗓️ 2023-02-13
 
 
