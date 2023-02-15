@@ -571,7 +571,7 @@ def delete_max(self):
 <br>
 
 ## A-Heap의 heap_sort 오름차순 구현
-
+- 가장 큰 수를 리스트 마지막 리프랑 교환 후 교환된 노드를 제외하고 다시 힙으로 만들어주기를 반복한다
 - O(NlogN)
     - w.c를 고려했을때 NlogN
 
@@ -607,25 +607,36 @@ def update_key(self, target_loc, new_key):
 	if not(0 <= k <len(self.H) and self.H[target_idx] == loc):
 		raise ValueError('Invalid locator')
 
-	# 새로 들어오는 키가 더 작다면 아래로 가야한다
+	# 새로 들어오는 키가 더 작다면 들어온 노드를 기준으로
+  # 아래로 힙을 만들어줘야 한다
 	# max-heap을 만들고 있기에 작은 노드가 리프에 있어야 한다
 	if target_loc.key > new_key:
 		target_loc.key = new_key
 		self.heapify_down(target_idx) 
 
-	# 새로 들어오는 키가 더 크다면 위로 가야한다
+	# 새로 들어오는 키가 더 크다면 들어온 노드를 기준으로 
+  # 위로 힙을 만들어줘야 한다
 	# max-heap을 만들고 있기에 큰 노드가 루트에 있어야 한다
 	elif target_loc.key < new_key:
 		target_loc.key = new_key
 		self.heapify_up(target_idx)
 ```
+
 <br><br>
 
 # 이진트리(Binary tree)
 
-이진트리의 표현법
-
+- **자식 노드가 0 or 1 or 2인 트리**
 - 리스트, Node class를 이용한 표현
+
+<br>
+
+**이진트리의 종류**
+- 리스트 표현
+    - ex) 힙
+- 재귀적 표현
+- 노드와 링크 표현
+    - ex) Node와 함께 구현하는 BinarySearchTree, AVL 등
 
 ```python
 class Node:
@@ -656,6 +667,8 @@ d.paren = b
     5
 ```
 
+<br>
+
 ### 이진트리 순회(traversal)
 
 ```
@@ -669,19 +682,21 @@ d.paren = b
 ```
 
 1. **전위 순회(Preorder)**
+    - **노드 → 왼쪽 서브트리 → 오른쪽 서브트리** 순으로 순회
+    - **Parent** - Left - Right
+    - F → ( B → A → D → C → E ) → ( G → I → H )
 
-- **노드 → 왼쪽 서브트리 → 오른쪽 서브트리** 순으로 순회
-- F B A D C E G I H
+2. **중위 순회(Inorder)**
+    - **왼쪽 서브트리 → 노드 → 오른쪽 서브트리** 순으로 순회
+    - Left - **Parent** - Right
+    - ( A → B → C → D → E ) → F → ( G → I → H )
 
-1. **중위 순회(Inorder)**
 
-- **왼쪽 서브트리 → 노드 → 오른쪽 서브트리** 순으로 순회
-- A B C D E F G H I
-
-1. **후위 순회(Postorder)**
-
-- **왼쪽 서브트리 → 오른쪽 서브트리 → 노드** 순으로 순회
-- A C E D B I H G F
+3. **후위 순회(Postorder)**
+  
+    - **왼쪽 서브트리 → 오른쪽 서브트리 → 노드** 순으로 순회
+    - Left - Right - **Parent**
+    - ( A → C → E → D → B ) → ( H → I → G ) → F
 
 [자료구조 트리](https://velog.io/@kimdukbae/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC-Tree#%ED%8A%B8%EB%A6%ACtree-%EC%88%9C%ED%9A%8C)
 
@@ -691,33 +706,77 @@ class Node:
     self.key = key
     self.parent = self.left = self.right = None
 
+
   def __str__(self):
     return str(self.key)
+
 
   def preorder(self): #현재 방문중인 노드 == self
     if self != None: # MLR
       print(self.key)
+      
       if self.left:
         self.left.preorder()
+      
       if self.right:
         self.right.preorder()
+
 
   def inorder(self):
     if self != None: # LMR
       if self.left:
         self.left.inorder()
+      
       print(self.key)
+      
       if self.right:
         self.right.inorder()
+
 
   def postorder(self):
     if self != None: # LRM
       if self.left:
         self.left.postorder()
+      
       if self.right:
         self.right.postorder()
+      
       print(self.key)
 ```
+
+### preorder와 inorder로 트리 복원 하는 법
+
+- preorder에서 제일 앞에 있는 노드로 Parent를 찾고 inorder에서 Parent를 기준점으로 양쪽의 트리를 나누어 생각한다
+
+<br>
+
+preorder - F, B, A, D, C, E, G, I, H 
+
+inorder - A, B, C, D, E, F, G, H, I
+
+1. pre에서 F가 루트임을 확인
+2. in에서 F를 기준으로 양쪽 트리를 나눈다
+    - A, B, C, D, E / F / G, H, I
+3. pre에서 나눠진 트리의 Parent를 찾는다
+    - F / B, A, D, C, E / G, I, H
+    - F 왼쪽 트리의 Parent B
+    - F 오른쪽 트리의 Parent G
+4. in에서 pre에서 찾은 트리의 Parent로  트리를 나눈다
+    - A / **B** / C, D, E // **F** // **G** / H, I
+    - B 오른쪽 자식 A
+    - B 왼쪽 트리 C, D, E
+    - G 왼쪽 트리 H, I
+5. pre에서 나누어진 트리의 Parent를 찾는다
+    - F ( B ( A ) ( **D**, C, E ) ) ( G ( **I**, H ) )
+    - B의 왼쪽 트리의 Parent D
+    - G의 왼쪽 트리의 Parent I
+6. in에서 나누어진 트리의 Parent로 트리를 나눈다
+    - ( ( A ) **B** ( C ( D ) E ) ) **F** ( **G** ( **H**, I ) )
+    - H는 I의 왼쪽 노드이다
+    - C와 E는 D의 왼쪽 오른쪽 노드이다
+
+
+<br><br>
 
 # 이진탐색트리(Binary Search Tree)
 
@@ -725,7 +784,7 @@ class Node:
 
 특정 키 값을 찾는 연산을 효율적으로 할 수 있도록 조직화한 트리
 
-이진탐색트리의 정의
+**이진탐색트리의 정의**
 
 - `left node`의 key 값은 부모 노드의 key 값보다 작은 값
 - `right node`의 key 값은 노드의 key 값보다 큰
@@ -743,30 +802,86 @@ class Node:
 - 일반적으로 리스트의 검색은 O(N), 이진 탐색 트리는 O(log N)
 - 리스트보다 이진 탐색 트리의 검색이 훨씬 효율적
 
-### 탐색
+<br>
 
-`find_loc()`
+### BinarySearchTree 구현
 
+```python
+# Node와 함께 구현하여 Node 사용
+class Node:
+  def __init__(self):
+    self.key = key
+    self.parent = self.left = self.right = None
+
+  #def postorder(self):
+  def __iter__(self):
+    if self != None:
+
+      # 왼쪽 트리에 있는 노드들 재귀적으로 호출
+      if self.left:
+        self.left.postorder()
+
+      # 오른쪽 트리에 있는 노드를 재귀적으로 호출
+      if self.right:
+        self.right.postorder()
+      
+      #iter 설정
+      yield self.key
+
+#BST의 시작
+class BinarySearchTree:
+  def __init__(self):
+    self.root = None
+    self.size = 0
+
+  def __len__(self):
+    return self.size
+
+  def __iter__(self):
+    # root이 가리키는 Node의 __iter__
+    # __iter__가 postorder라면 post로 노드를 읽는다
+    return self.root.__iter__()
+
+B = BinarySearchTree()
+# root가 15를 가리킨다
+B.insert(15)
+# 4가 15 왼쪽 자식으로 들어간다
+B.insert(4)
+
+```
+
+<br>
+
+## 탐색 연산 
+### find_locaiton 구현
+- key값과 일치하는 노드를 리턴
+- key값과 일치하는 노드가 없다면 노드가 삽입될 부모 노드 리턴
+- O(h) → **균형**이진탐색트리의 경우 O(logn) - root부터 리프까지 내려가며 찾는다
 ```python
 def find_loc(self, key):
   if self.size == 0: return None
+
   p = None # p is parent of v
   v = self.root
 
+  # 리프 노트까지 내려가 더 내려갈 곳 없다면 None 만남
   while v != None:
     if v.key == key: return v
-# v보다 크면 오른쪽 서브트리
+
+  # v보다 크면 오른쪽 서브트리로 찾으러 간다
     elif v.key < key:
       p = v
       v = v.right
-# v보다 작으면 왼쪽 서브트리
+
+  # v보다 작으면 왼쪽 서브트리로 찾으러 간다
     else:
       p = v
       v = v.left
+
   retern p
 ```
 
-`search()`
+### search 구현 
 
 ```python
 def search(self, key):
@@ -777,25 +892,41 @@ def search(self, key):
     return v
 ```
 
-### 삽입
+<br>
 
-`insert` : O(log n)
+## 삽입연산
+
+### insert
+1. find_location으로 일치하는 노드 있는지 확인 or 없다면 아래에 삽입할 부모 노드 받아온다
+2. 삽입할 노드 생성
+3. 생성한 노드와 부모 노드를 이어준다
+
+- 이미 존재하는 key 삽입하려 했다면 None 반환
+- key 정상적으로 삽입했다면 생성된 노드 반환
+- balance의 경우 O(h) - find_location의 O(h) + O(1)의 연산
 
 ```python
 def insert(self, key):
   p = self.find_loc(key) # find_loc() 은 O(h)
 
+  # key값과 일치하는 노드가 없다면
   if p == None or p.key != key:
+    # 노드 생성
     v = Node(key)
+
+    # parent가 None이면 내가 삽입할 key가 루트에 들어가야 한다는 뜻	
     if p == None:
       self.root = v
+
+    # parent.key가 내가 찾는 key가 아니면 삽입될 부모 노드 받아왔다는 것
     else:
       v.parent = p
 
-      if p.key >= key: # left/right
+      if p.key >= key: # left/right 어디로 넣을지
         p.left = v
       else:
         p.right = v
+
     self.size = self.size + 1
     return v
 
@@ -804,95 +935,215 @@ def insert(self, key):
     return p # 중복 key를 허용하지 않으면 None 리턴 p == None
 ```
 
-# 이진탐색트리 연산
+<br>
 
----
+## 이진탐색트리 삭제 연산
 
-- deleteByMerging
-- deleteByCopying
+**삭제 연산 종류**
+    - deleteByMerging
+    - deleteByCopying
+
+<br>
 
 ### **deleteByMerging**
 
-x노드를 지울 때, x 자리에 L을 두고, L의 가장 큰 노드의 자식 노드로 R을 연결
+1. find_location으로 x 찾고 그 x를 deleteByMerging에 넘긴다
+2. deleteBtyMerging은 왼쪽 subtree 삭제될 노드 자리로 끌어올린다
+3. 항상 왼쪽보다 오른쪽의 노드가 더 커야 하기에 x.왼쪽 자식 서브트리 중 가장 큰 값을 가진 노드 아래에 오른쪽 subtree가 들어가야 한다. 즉 가장 오른쪽 노드 아래에 오른쪽 자식으로 들어가야 한다
+    - 아래의 그림에서 32에 집중해보자 
 
 ![image](https://user-images.githubusercontent.com/122584209/218384325-501b544c-aa52-4593-88a6-350bffd5faa1.png)
 
-경우들
+<br>
 
-1. 왼쪽 자식노드가 없는 경우 : R로 x 대체
-2. x가 루트인 경우 : 루트 노드를 업데이트
+경우 1. **target_L == None** vs **target_L ! = None**
+    - 즉 삭제한 노드의 왼쪽 자식이 None일 경우 vs 아닌 경우
+    - 왼쪽 자식이 존재하지 않는다면 삭제한 노드의 오른쪽 자식이 그 자리 대체한다
 
+경우 2. **target_P == None** vs **target_P ! = None**
+    - 삭제하려고 하는 노드가 root일 경우 vs 아닌 경우
+    - 삭제하려고 하는 노드가 root인 경우 오른쪽 subtree가 새로운 트리가 되버린다.
+    - 새로운 노드와 root를 이어주어야 한다
+
+<br>
+
+O(h) → balance의 경우 O(logn) 
+    - w.c는 타깃이 root이며 오른쪽 subtree가 존재할 때이다
 ```python
-deleteByMerging(self, x): # 노드 x 를 삭제
-  a = x.left, b = x.right
-  pt = x.parent
-  # c == x를 대체할 노드
-  # m == L에서 가장 큰 노드
+def delete_by_merging(self, target):
+  target_L = target.left
+  target_R = target.right
+  target_P = target.parent
+  # tmp_target - x 자리를 대체할 노드
+  # biggest_in_L - 타깃의 왼쪽 subtree에서 가장 큰 노드
 
-# 왼쪽 노드 a가 x를 대체
-  if a != None:
-    c = a
-    m = a
+  # 경우 1!
+  # 타깃의 왼쪽 자식이 존재하는 경우
+  if target_L != None:
+    tmp_target = target_L
+	
+    # biggest_in_L이 가장 오른쪽으로 내려가서 None 만날때까지 내려간다
+    # biggest_in_L을 가장 큰 수에 연결한다
+    biggest_in_L = target_L
+    while biggest_in_L.right != None:		
+      biggest_in_L = biggest_in_L.right
 
-# 왼쪽 노드에서 가장 큰 수
-# 오른쪽 노드가 큰 수 이므로 오른쪽끝까지 내려감
-    while m.right:
-      m = m.right    
+    # 타깃의 왼쪽 subtree가 존재할 경우
+    # 오른쪽 subtree를 왼쪽 subtree 중 가장 큰 노드의 오른쪽 자식으로 붙인다
+    if target_R != None:
+      target_R.parent = biggest_in_L
+    # 왼쪽 subtree가 None이라도 biggest_in_L 오른쪽 자식으로 붙여준다
+    biggetst_in_L.right = target_R
 
-# R은 L의 가장 큰 수에 연결
-    if b != None:
-      b.parent = m
-      m.right = b
-  else: # a == None (경우1)
-    c = b
+  # 타깃의 왼쪽 자식이 None인 경우 
+  # 타깃의 오른쪽 자식이 빈자리를 채운다
+  elif target_L == None:
+    tmp_target = target_R
+    target_R.parent = target.parent
+    target.parent.right = target_R 
 
-# 경우 2 : 
-  if pt != None:
-    if c: c.parent = pt
-    if pt.key < c.key:
-      pt.right = c
-    else:
-      pt.left = c
 
-  else:  # pt == None (root == x)
-    self.root = c
-    if c: c.parent = None
+  # 경우 2!
+  # 타깃이 root였다면 root와 새 노드를 이어줘야 한다
+  if target_P == None:
+    self.root = tmp_target
+    # tmp_target의 링크도 설정
+    if tmp_target != None:
+      tmp_target.parent = None 
+			
+  # 타깃이 root가 아닌 경우
+  elif target_P != None:
+
+    # 대체될 노드를 삭제된 노드의 부모와 이어준다
+    if tmp_target != None:
+      tmp_target.parent = target_P
+
+      # 타깃의 부모 밑에 어느쪽 자식으로 넣을지 판별
+      if target_P.key < tmp_target.key:
+        # 큰건 오른쪽으로 넣는다
+        target_P.right = tmp_target
+
+      elif target_P.key >= tmp_target.key:
+        # 작은건 왼쪽으로 넣는다
+        target_P.left = tmp_target
+		
+
   self.size -= 1
-  # return은 다음에 다시 설명하기로 함
+  
+  # 새로 대체한 노드 반환
+  return tmp_target
 ```
+<br>
 
 ### deleteByCopying
 
-x 노드를 지울 때, x를 지우는 게 아니라 값을 복사하는 방식으로 변경. L에서 가장 큰 값(m)을 찾아서 x에 복사. 원래 m의 자리에는 m의 왼쪽 서브트리가 들어감
+x 노드를 지울 때, x를 지우는 게 아니라 값을 복사하는 방식으로 변경. 
+    - 노드를 삭제하지 않고 왼쪽 subtree에서 가장 큰 key값을 복사한다
+    - 복사된 자리는 복사된 자리의 왼쪽 subtree가 대신 채운다
+<img width="345" alt="image" src= 'https://user-images.githubusercontent.com/83294376/218896730-01b77689-dcf0-4613-8603-51cae9623c2d.png'>
 
+
+경우 1.  **target_L == None vs target_L ! = None**
+    - 타겟의 왼쪽 자식이 None일 경우 vs 아닌 경우
+    - 왼쪽 자식이 존재하지 않는다면 오른쪽 자식의 값 중 제일 작은 값(제일 왼쪽의 값을) 복사한다
+    - 왼쪽 자식이 존재한다면 왼쪽 자식의 오른쪽 트리를 왼쪽 자식의 노드 중 가장 큰 노드 아래로 붙여준다
+
+경우 2. **값 복사된 노드의 왼쪽 자식이 없는 경우 vs 있는 경우**
+    - 값 복사된 노드의 왼쪽 자식이 없는 경우 오른쪽 subtree를 붙여준다
+    - 둘 다 없는 경우 부모의 왼쪽 자식과 오른쪽 자식을 None으로 선언
+
+- O(h-1) → balance의 경우 O(logn) 
 ```python
-deleteByMerging(self, x): # 노드 x 를 삭제
-  a = x.left, b = x.right
-  pt = x.parent
-  # c == x를 대체할 노드
-  # m == L에서 가장 큰 노드
+def delete_by_copying(self, target):
+  target_L = target.left
+  target_R = target.right
+  # smallest_in_R - target에 복사될 노드를 찾으러 순회하는 노드
+  # biggest_in_L - target에 복사될 노드를 찾으러 순회하는 노드
 
-# 왼쪽 노드 a가 x를 대체
-  if a != None:
-    m = a
-# 왼쪽 노드에서 가장 큰 수
-# 오른쪽 노드가 큰 수 이므로 오른쪽끝까지 내려감
-    while m.right:
-      m = m.right   
-        c = m
-        m.parent = pt
+  # 경우 1!
+  # 타깃의 왼쪽 자식이 존재하는 경우
+  if target_L != None:
+		
+    # biggest_in_L이 가장 오른쪽으로 내려가서 None 만날때까지 내려간다
+    biggest_in_L = target_L
+    while biggest_in_L.right != None:		
+      biggest_in_L = biggest_in_L.right
+		
+    # 제일 큰 값 찾았으면 타깃으로 key 복사해준다
+    target.key = biggest_in_L.key
 
-# R은 L의 가장 큰 수에 연결
-    if m.left != None:
-            a.right = m.left
-      m.left.parent = a
+    # 경우 2!
+    # biggest_in_L의 왼쪽 subtree가 존재하는 경우
+    if biggest_in_L.left != None:
+      # 왼쪽 subtree를 biggest_in_L의 부모의 왼쪽 자식으로 붙여준다
+      biggest_in_L.left.parent = biggest_in_L.parent
+			biggest_in_L.parent.left = biggest_in_L.left
 
-  else: # a == None (경우1)
-    m = b
-        while m.left:
-      m = m.left
-        c = m
+      # 오른쪽 subtree는 biggest_in_L의 왼쪽 subtree에서 가장 큰 노드 아래로 넣어준다
+      have_to_move_node = biggest_in_L.right # 코드의 명료화
+      # biggest안에서 또 제일 큰 노드 찾기 위해 tmp 타깃으로 만들어준다
+      tmp_target = biggest_in_L.left 
+
+      while tmp_target.right != None:		
+        tmp_target = tmp_target.right
+
+        tmp_target.right = have_to_move_node
+        have_to_move_node.parent = tmp_target
+
+    # biggest_in_L의 왼쪽 subtree가 존재하지 않는 경우
+    elif biggest_in_L.left == None and biggest_in_L.right != None: 
+      biggest_in_L.right.parent = biggest_in_L.parent
+      biggest_in_L.parent.right = biggest_in_L.right
+    # biggest_in_L의 자식이 존재하지 않는 경우
+    elif biggest_in_L.left == None and biggest_in_L.right == None: 
+      biggest_in_L.parent.right = None
+      biggest_in_L.parent.left = None
+
+
+  # 경우 1!
+  # 타깃의 왼쪽 자식이 None인 경우 
+  # 타깃의 오른쪽 자식 subtree에서 가장 작은 값을 가져온다
+  elif target_L == None:
+
+    # smallest_in_R이 가장 왼쪽으로 내려가서 None 만날때까지 내려간다
+    smallest_in_R = target_L
+    while smallest_in_R.left != None:		
+      smallest_in_R = smallest_in_R.left
+	
+    # 경우 2!
+    # smallest_in_R의 왼쪽 subtree가 존재할 경우
+    # 왼쪽 subtree를 smallest_in_R의 부모의 왼쪽 자식으로 붙여준다
+    if smallest_in_R.left != None:
+      smallest_in_R.left.parent = smallest_in_R.parent
+      smallest_in_R.parent.left = smallest_in_R.left
+
+      # 왼쪽 subtree는 smallest_in_R의 오른쪽 subtree에서 가장 작은 노드 아래로 넣어준다
+      have_to_move_node = smallest_in_R.left # 코드의 명료화
+      # biggest안에서 또 제일 큰 노드 찾기 위해 tmp 타깃으로 만들어준다
+      tmp_target = smallest_in_R.right
+
+      while tmp_target.left != None:		
+        tmp_target = tmp_target.left
+
+      tmp_target.left = have_to_move_node
+      have_to_move_node.parent = tmp_target
+
+
+    # smallest_in_R의 왼쪽 subtree가 존재할 경우
+    elif smallest_in_R.left == None and smallest_in_R.right != None: 
+      smallest_in_R.right.parent = smallest_in_R.parent
+      smallest_in_R.parent.right = smallest_in_R.right
+
+    elif smallest_in_R.left == None and smallest_in_R.right == None: 
+      smallest_in_R.parent.right = None
+      smallest_in_R.parent.left = None
+
+  self.size -= 1
+  return target
+
 ```
+
+<br>
 
 ### 삭제 연산의 수행 시간
 
@@ -907,6 +1158,9 @@ deleteByMerging(self, x): # 노드 x 를 삭제
 
 위 함수 모두 O(h) 시간이 든다.
 
+<br>
+
+**같은 키 값을 저장해도 height의 크기가 다를 수 있음**
 ```python
 # case 1
 insert(1)
@@ -921,8 +1175,5 @@ insert(3)
 insert(4)
 ```
 
-- 같은 키 값을 저장해도 height의 크기가 다를 수 있음
 - 이진탐색트리에서 높이는 수행시간을 결정
-
-어떤 순서로 키값이 삽입되는지와 상관없이 가능하면 작게 유지 → 균형이진탐색트리(balanced binary…)
-QnA
+- 어떤 순서로 키값이 삽입되는지와 상관없이 가능하면 작게 유지 → 균형이진탐색트리(balanced binary…)
