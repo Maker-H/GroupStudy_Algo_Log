@@ -35,7 +35,7 @@
 |2023-02-01|04|[한방향 리스트](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/03_%ED%95%9C%EB%B0%A9%ED%96%A5_%EB%A6%AC%EC%8A%A4%ED%8A%B8_230201)|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_문제/02_스택_큐_덱_리스트)|[jaewook718](https://github.com/jaewook718)|
 |2023-02-03|05|[원형 양방향 리스트](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/04_%EC%9B%90%ED%98%95_%EC%96%91%EB%B0%A9%ED%96%A5_%EB%A6%AC%EC%8A%A4%ED%8A%B8_230203)|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_문제/02_스택_큐_덱_리스트)|[Bonjae9](https://github.com/Bonjae9), [Maker-H](https://github.com/Maker-H)|
 |2023-02-06|06|[해쉬 테이블](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/05_%ED%95%B4%EC%89%AC_%ED%85%8C%EC%9D%B4%EB%B8%94_230206)||[Bonjae9](https://github.com/Bonjae9), [Maker-H](https://github.com/Maker-H)|
-|2023-02-06|06|[힙, 이진트리탐색](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/06_%ED%9E%99_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC%ED%83%90%EC%83%89_230213)||[Anyounggi](https://github.com/Anyounggi)|
+|2023-02-06|06|[힙, 이진트리탐색](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/06_%ED%9E%99_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC%ED%83%90%EC%83%89_230213)||[Anyounggi](https://github.com/Anyounggi) , [Maker-H](https://github.com/Maker-H)|
 <br />
 
 ---
