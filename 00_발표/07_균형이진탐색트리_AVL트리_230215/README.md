@@ -1,3 +1,15 @@
+# 자료구조 7회차 - 균형이진트리(AVL 트리)
+
+## 𝐈𝐧𝐟𝐨
+
+- 📌 발표자 : [@hjhj-kk](https://github.com/hjhj-kk)
+- 🗓️ 2023-02-15
+
+### QnA
+
+
+<br><br>
+
 # 균형 이진 트리
 
 ## 균형이진탐색트리 ( Balanced BST )
