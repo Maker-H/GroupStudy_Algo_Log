@@ -12,8 +12,7 @@
 ### rotation
 
 트리를 회전 시켜 전체 트리 높이를 줄여줌
-
-![rotation.jpeg](C:\Users\SSAFY\AppData\Roaming\marktext\images\74ce2a2c8d8213003da40b898012208a81b272ce.jpeg)
+![rotation](https://user-images.githubusercontent.com/123444953/218942666-b6002231-2166-4888-b15f-0a82476f709b.jpeg)
 
 ```python
 def rotateRight(self,z): # z를 중심으로 오른쪽 방향으로 회전
@@ -91,13 +90,13 @@ ABL Class : 기존의 BST를 상속하여 만든다
   
   - case 1
     
-    ![insert_case1.png](C:\Users\SSAFY\AppData\Roaming\marktext\images\5cdac2476484b1c55d9ab625afc218d3974d9754.png)
+     ![insert_case1](https://user-images.githubusercontent.com/123444953/218942944-e80e9670-2448-42b0-af86-63abf0dae3b1.png)
   
   - case 2
     
-    ![insert_case2.png](C:\Users\SSAFY\AppData\Roaming\marktext\images\88d48679ce530eea7c47110f511985494ad7f9ef.png)
-  
-  - pseudo code
+    ![insert_case2](https://user-images.githubusercontent.com/123444953/218943008-9d28a8b0-6393-4428-b438-a29a29f010d8.png)
+
+- pseudo code
 
 ```python
 def insert(self, key):
@@ -118,7 +117,7 @@ def insert(self, key):
 
 - 균형을 맞추기 위해서, v가 속한 부트리의 높이를 증가시키고, 이를 위해서 y와 x를 z에서 v가 속하지 않은 부트리에 속하는 노드로 정의
   
-  ![delete.png](C:\Users\SSAFY\AppData\Roaming\marktext\images\081aa19cc2b473a664493719202c69ab13415a22.png)
+  ![delete](https://user-images.githubusercontent.com/123444953/218943071-bb74526c-429e-4f6d-ae70-c464d56677be.png)
 
 - z-y-x의 균형은 맞췄지만, y의 새로운 부모 노드인 w에서 균형이 깨진다.
   
