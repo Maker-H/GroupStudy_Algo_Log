@@ -12,6 +12,6 @@ while T != 0:                                           # T==0이 될때까지 �
     if k > 0:                                           # 만약 풍선내의 값이 양수면
         a.rotate(1-k)                                # 팝을 해서 한칸옮겨감(+1) k만큼 뒤로 추가로 회전
     elif k < 0:
-        a.rotate(-k)                                    #음수면 k만큼 뒤로 회전
+        a.rotate(-k)                                    #음수면 k만큼 뒤로 회전.
 
 print(*new_list)
