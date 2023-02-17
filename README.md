@@ -3,7 +3,6 @@
 > 해당 레포지토리는 신찬수 교수님의 [자료구조 강의](https://www.youtube.com/watch?v=PIidtIBCjEg&list=PLsMufJgu5933ZkBCHS7bQTx0bncjwi4PK&index=1)를 참고하였습니다.
 <code style="display: inline-flex; justify-content: flex-end; align-items: baseline;">[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMaker-H%2FGroupStudy_Algo_Log&count_bg=%233A53D4&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)</code>
 
-..
 
 <br>
 
@@ -36,7 +35,8 @@
 |2023-02-03|05|[원형 양방향 리스트](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/04_%EC%9B%90%ED%98%95_%EC%96%91%EB%B0%A9%ED%96%A5_%EB%A6%AC%EC%8A%A4%ED%8A%B8_230203)|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_문제/02_스택_큐_덱_리스트)|[@Bonjae9](https://github.com/Bonjae9), [@Maker-H](https://github.com/Maker-H)|
 |2023-02-06|06|[해쉬 테이블](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/05_%ED%95%B4%EC%89%AC_%ED%85%8C%EC%9D%B4%EB%B8%94_230206)||[@Bonjae9](https://github.com/Bonjae9), [@Maker-H](https://github.com/Maker-H)|
 |2023-02-13|07|[힙, 이진트리탐색](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/06_%ED%9E%99_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC%ED%83%90%EC%83%89_230213)|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EB%AC%B8%EC%A0%9C/03_%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%ED%81%90_%ED%8A%B8%EB%A6%AC)|[@Anyounggi](https://github.com/Anyounggi) , [@Maker-H](https://github.com/Maker-H)|
-|2023-02-15|08|[균형이진트리(AVL)](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/07_%EA%B7%A0%ED%98%95%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89%ED%8A%B8%EB%A6%AC_AVL%ED%8A%B8%EB%A6%AC_230215)|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EB%AC%B8%EC%A0%9C/03_%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%ED%81%90_%ED%8A%B8%EB%A6%AC)| [@hjhj-kk](https://github.com/hjhj-kk)|
+|2023-02-15|08|[AVL 트리(균형이진트리)](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/00_%EB%B0%9C%ED%91%9C/07_%EA%B7%A0%ED%98%95%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89%ED%8A%B8%EB%A6%AC_AVL%ED%8A%B8%EB%A6%AC_230215)|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EB%AC%B8%EC%A0%9C/03_%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%ED%81%90_%ED%8A%B8%EB%A6%AC)| [@hjhj-kk](https://github.com/hjhj-kk)|
+|2023-02-15|08|[Red-Black, 2-3-4(균형이진트리)]()|[바로가기](https://github.com/Maker-H/GroupStudy_Algo_Log/tree/master/01_%EB%AC%B8%EC%A0%9C/03_%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%ED%81%90_%ED%8A%B8%EB%A6%AC)| [@Maker-H](https://github.com/Maker-H)|
 
 <br />
 
@@ -167,9 +167,10 @@ git commit -m "[진희솜] 스택 / 균형잡힌 세상 / 브론즈" -m "https:/
 <summary>자세히</summary>
 <div markdown="1">
 
-- [x] PR 하는 법, README 작성하는 법, fork 후 fetch 하는 법 README에 정리
-- [x] 추가되고 있는 스터디 규칙을 정리하여 업데이트
+-
 - [ ] basic_generator.yml 버그 픽스
 - [ ] github.io 알아보기
+- [ ] 레드블랙트리 삭제연산 업데이트
+- [ ] 힙 왜 O(n)인지 업데이트 
 </div>
 </details>
