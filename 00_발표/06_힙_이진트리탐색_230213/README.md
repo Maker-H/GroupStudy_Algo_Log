@@ -1,5 +1,7 @@
 # 자료구조 6회차 - 힙, 이진탐색트리
 
+[메인으로 돌아가기](https://github.com/Maker-H/GroupStudy_Algo_Log)
+
 ## 𝐈𝐧𝐟𝐨
 
 - 📌 발표자 : [@Anyounggi](https://github.com/Anyounggi)
@@ -8,7 +10,9 @@
 
 
 
-<br><br>
+<br>
+
+<br>
 
 
 # 트리(tree)

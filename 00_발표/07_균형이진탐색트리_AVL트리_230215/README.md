@@ -1,8 +1,11 @@
 # 자료구조 7회차 - AVL 트리 (균형이진트리)
 
+[메인으로 돌아가기](https://github.com/Maker-H/GroupStudy_Algo_Log)
+
 ## 𝐈𝐧𝐟𝐨
 
 - 📌 발표자 : [@hjhj-kk](https://github.com/hjhj-kk)
+- 📌 작성자 : [@hjhj-kk](https://github.com/hjhj-kk), [@Maker-H](https://github.com/Maker-H)
 - 🗓️ 2023-02-15
 
 
