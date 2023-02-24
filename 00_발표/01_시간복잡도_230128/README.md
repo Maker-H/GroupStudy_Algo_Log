@@ -1,5 +1,7 @@
 # 자료구조 1회차 - 시간복잡도
 
+[메인으로 돌아가기](https://github.com/Maker-H/GroupStudy_Algo_Log)
+
 ## 𝐈𝐧𝐟𝐨
 
  - 📌 발표자 : [@Maker-H](https://github.com/Maker-H)
@@ -21,7 +23,9 @@
 
 <br>
 
+
 ---
+
 
 <br>
 

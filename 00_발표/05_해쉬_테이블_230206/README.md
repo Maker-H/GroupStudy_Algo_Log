@@ -1,5 +1,7 @@
 # 자료구조 5회차 - 해쉬 테이블
 
+[메인으로 돌아가기](https://github.com/Maker-H/GroupStudy_Algo_Log)
+
 ## 𝐈𝐧𝐟𝐨
 
 - 📌 발표자 : [@Bonjae9](https://github.com/Bonjae9)
@@ -17,7 +19,10 @@ Q : 발표자료에 해시테이블 삽입,삭제,탐색 연산의 시간복잡�
 
 A : 결론적으로 말하면 해시테이블의 시간복잡도는 O(1)이 맞다. 그런데 이 값은 테이블에서 데이터가 차지하는 정도인 Load factor를 일정하게 유지 시켜주는 방법과 C-universal등의 Collision resolution method등을 통해서 개선이 되었을때 나온다. 
 
+
 </br>
+
+
 <hr>
 
 </hr>

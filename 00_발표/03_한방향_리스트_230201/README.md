@@ -1,5 +1,7 @@
 # 자료구조 3회차 - 한방향 리스트
 
+[메인으로 돌아가기](https://github.com/Maker-H/GroupStudy_Algo_Log)
+
 ## 𝐈𝐧𝐟𝐨
 
 - 📌 발표자 : [@jaewook718](https://github.com/jaewook718)
@@ -11,11 +13,13 @@
 - 모두 값을 갖고 있다는 점에서 차이가 없고 key값은 반드시 있어야하지만 value값은 더 담고 싶은 정보가 없으면 없어도 됩니다.
 2. Popback에서 remove랑 다르게 prev와 tail을 먼저 정의하는 이유?
 - Popback은 tail node를 찾지만 remove는 키값을 찾아 없애는 과정을 하기 때문에 remove의 경우 앞에서 정의하게 되면 첫번째 노드는 건너뛰고 두번째 노드부터 탐색하기 때문에 뒤에서 정의 해야합니다.
-  
-<br><br>
+
+<br>
 
 
-## 자료구조 3
+---
+
+<br>
 
 # Linked List![LLdrawio](https://user-images.githubusercontent.com/102957590/216055414-52c20fcd-a09e-4b3f-bb40-4ac5d09069b9.png)
 
